@@ -199,9 +199,10 @@ img {
 }
 
 .projects .projectMenu {
+  margin-top: 25px;
   font-size: larger;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 20% 80%;
 }
 
 .projectTags ul {
@@ -257,6 +258,46 @@ img {
 .workexp {
   background-color: aquamarine;
   text-align: center;
+  display: grid;
+  grid-template-columns: 20% 20% 60%;
+}
+
+.workexpTitle {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  justify-self: stretch;
+  font-size: larger;
+}
+
+.workexDetails {
+  grid-column: 3;
+  grid-row: 1;
+  width: 100%;
+  text-align: left;
+}
+
+.workTitle {
+  font-size: larger;
+}
+
+.workTime {
+  grid-column: 2;
+  text-align: end;
+  padding-right: 10px;
+  font-size: larger;
+}
+
+.tags ul {
+  display: flex;
+}
+
+.tags p {
+  background-color: var(--dark-color);
+  margin: 5px;
+  color: var(--light-color);
+  padding: 2px;
+  border-radius: 10px;
 }
 
 /* Footer */

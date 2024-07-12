@@ -23,33 +23,15 @@
   }
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 /***************/
 
 body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background: linear-gradient(
-    -45deg,
-    var(--dark-color),
-    var(--light-color),
-    var(--primary-color)
-  );
-  background-size: 400% 400%;
-  animation: fadeIn 1s, gradient 15s ease infinite;
-  height: 100vh;
+  background: var(--dark-color);
+  transition: 0.5s;
+  animation: fadeIn 1s;
 }
 
 a {
@@ -163,10 +145,10 @@ img {
 /* Content Holder */
 
 .ContentHolder {
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 15px;
-  background-color: rgba(255, 255, 255, 0.151);
+  background-color: #de1717;
 }
 
 /* about */
@@ -187,6 +169,19 @@ img {
 .about .introduction {
   padding-left: 50px;
   max-width: 50%;
+}
+
+h1 {
+  color: var(--light-color);
+}
+h2 {
+  color: var(--light-color);
+}
+
+.softwareEng {
+  color: transparent;
+  background: linear-gradient(220deg, var(--primary-color), var(--light-color));
+  background-clip: text;
 }
 
 /* Projects */
@@ -251,6 +246,59 @@ img {
 .projectCard img {
   display: flex;
   max-height: 250px;
+}
+
+/* Work Cards */
+
+.workCards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.workCard {
+}
+
+.workCard {
+  width: 50px;
+  height: 50vh;
+  box-shadow: 0 0 10px black;
+  flex: 1;
+  background: white no-repeat scroll center;
+  transition: all 0.33s linear;
+  filter: grayscale(1);
+}
+
+#workCard-1 {
+  background-image: url("/Assets/capstone.jpg");
+  background-size: cover;
+}
+#workCard-2 {
+  background-image: url("/Assets/OxfamQuebec.png");
+  background-size: cover;
+}
+#workCard-3 {
+  background-image: url("/Assets/innovapost.jpg");
+  background-size: cover;
+}
+#workCard-4 {
+  background-image: url("/Assets/innovapost.jpg");
+  background-size: cover;
+}
+
+.workCard h3 {
+  position: absolute;
+  left: 0;
+  bottom: 100px;
+  font-size: 40px;
+  transform: rotate(-90deg);
+}
+
+.active {
+  flex: 6;
+  filter: grayscale(0);
 }
 
 /* Work Experience */

@@ -275,7 +275,7 @@ h2 {
 .imagehold {
   width: 50%;
   transition: 1s linear;
-  background-image: url(/Assets/code.jpeg);
+  background-image: url("../Assets/code.jpeg");
   background-size: cover;
   filter: brightness(50%) blur(1px);
   transition: 0.25s ease-in;
@@ -361,16 +361,16 @@ h2 {
 }
 
 #workCard-1 {
-  background-image: url("/Assets/code.jpeg");
+  background-image: url("../Assets/code.jpeg");
 }
 #workCard-2 {
-  background-image: url("/Assets/OxfamQuebec.png");
+  background-image: url("../Assets/OxfamQuebec.png");
 }
 #workCard-3 {
-  background-image: url("/Assets/innovapost.PNG");
+  background-image: url("../Assets/innovapost.PNG");
 }
 #workCard-4 {
-  background-image: url("/Assets/innovapost.jpg");
+  background-image: url("../Assets/innovapost.jpg");
 }
 
 .workCard h3 {

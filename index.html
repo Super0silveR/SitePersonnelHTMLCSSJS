@@ -31,23 +31,23 @@
         <div class="main-menu">
           <ul>
             <li>
-              <a href="index.html">Home</a>
+              <a href="#about">Home</a>
             </li>
             <li>
-              <a href="#">Work Experience</a>
+              <a href="#workCards">Work Experience</a>
             </li>
             <li>
-              <a href="#">Projects</a>
+              <a href="#projects">Projects</a>
             </li>
             <li>
-              <a class="btn" href="#">Contact</a>
+              <a class="btn" href="#contactsection">Contact</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <div class="ContentHolder">
-      <div class="about">
+      <div class="about" id="about">
         <div class="img">
           <img src="Assets/Elias cropped.PNG" alt="Mepic" />
         </div>
@@ -59,20 +59,48 @@
           </div>
         </div>
       </div>
-      <div class="workCards">
+      <div class="workCards" id="workCards">
         <div class="workCard" id="workCard-1">
-          <h3>Capstone downtown</h3>
+          <h3>DowntownApp</h3>
+          <p>
+            Demonstrated proficiency in HTML, CSS, and Java within the Angular
+            CLI framework on the Canada Post website, which serves 193 million
+            monthly visitors. I collaborated in a scrum development environment
+            to ensure project progression and adherence to timelines, fostering
+            seamless communication with UI/UX designers. Additionally, I
+            provided extensive full-stack development support for a live
+            project, leveraging Spring Boot and Angular CLI to integrate code
+            and tests effectively.
+          </p>
+          <a> Learn more !</a>
         </div>
         <div class="workCard" id="workCard-2">
-          <h3>Oxfam Québec</h3>
+          <h3>Oxfam</h3>
+          <p>Lorem ipsum</p>
+          <div class="workTags">
+            <ul>
+              <li>
+                <p>HTML</p>
+              </li>
+              <li>
+                <p>HTML</p>
+              </li>
+            </ul>
+          </div>
+          <a> Learn more !</a>
         </div>
         <div class="workCard" id="workCard-3">
-          <h3>Innovapost</h3>
+          <h3>Innovapost I</h3>
+          <p>Lorem ipsum</p>
+          <a> Learn more !</a>
         </div>
         <div class="workCard" id="workCard-4">
-          <h3>Innovapost</h3>
+          <h3>Innovapost II</h3>
+          <p>Lorem ipsum</p>
+          <a> Learn more !</a>
         </div>
       </div>
+      <!--
       <div class="workexp">
         <div class="workexpTitle">
           <a>My Work Experience</a>
@@ -200,7 +228,8 @@
           </div>
         </div>
       </div>
-      <div class="projects">
+    -->
+      <div class="projects" id="projects">
         <div class="projectMenu">
           <div class="MyProject">
             <a>My Projects</a>
@@ -226,11 +255,11 @@
           <ul>
             <li>
               <div class="projectCard">
-                <div>
-                  <img src="Design/Logo.png" alt="" class="projectImage" />
+                <div class="imagehold">
+                  <h3>Project</h3>
                 </div>
-                <div>
-                  <h3 class="projectTitle">This is a project</h3>
+                <div class="projectDetails">
+                  <h3 class="projectTitle">Capstone</h3>
                   <p class="projectDescrip">
                     This is a project I made with love. Let me share my
                     experience of it with you!
@@ -241,47 +270,82 @@
             </li>
             <li>
               <div class="projectCard">
-                <div>
-                  <img src="Design/Logo.png" alt="" class="projectImage" />
+                <div class="imagehold">
+                  <h3>Project</h3>
                 </div>
-                <div>
-                  <h3 class="projectTitle">This is a project</h3>
+                <div class="projectDetails">
+                  <h3 class="projectTitle">Capstone</h3>
                   <p class="projectDescrip">
                     This is a project I made with love. Let me share my
                     experience of it with you!
                   </p>
+                  <a>Learn more</a>
                 </div>
               </div>
             </li>
             <li>
               <div class="projectCard">
-                <div>
-                  <img src="Design/Logo.png" alt="" class="projectImage" />
+                <div class="imagehold">
+                  <h3>Project</h3>
                 </div>
-                <div>
-                  <h3 class="projectTitle">This is a project</h3>
+                <div class="projectDetails">
+                  <h3 class="projectTitle">Capstone</h3>
                   <p class="projectDescrip">
                     This is a project I made with love. Let me share my
                     experience of it with you!
                   </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="projectCard">
-                <div>
-                  <img src="Design/Logo.png" alt="" class="projectImage" />
-                </div>
-                <div>
-                  <h3 class="projectTitle">This is a project</h3>
-                  <p class="projectDescrip">
-                    This is a project I made with love. Let me share my
-                    experience of it with you!
-                  </p>
+                  <a>Learn more</a>
                 </div>
               </div>
             </li>
           </ul>
+        </div>
+      </div>
+      <div class="contactsection" id="contactsection">
+        <h3>Contact Me!</h3>
+        <div>
+          <form
+            action="https://formsubmit.co/9a6c8484e65dfe0eaf8de4d00b577a9a "
+            method="POST"
+            class="contactform"
+          >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              style="grid-column: 2; grid-row: 1"
+              placeholder="Name"
+              required
+            /><br />
+            <input
+              type="text"
+              id="email"
+              name="email"
+              style="grid-column: 2; grid-row: 2"
+              placeholder="example@gooood.NET"
+              required
+            /><br />
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              style="grid-column: 2; grid-row: 3"
+              placeholder="Phone Number : 514-214-8616"
+            /><br />
+            <textarea
+              name="message"
+              id="message"
+              style="grid-column: 2; grid-row: 4"
+              placeholder="message"
+              required
+            ></textarea
+            ><br />
+            <input
+              type="submit"
+              value="submit"
+              style="grid-column: 2; grid-row: 5"
+            />
+          </form>
         </div>
       </div>
     </div>

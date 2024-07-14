@@ -54,6 +54,7 @@ img {
   padding: 20px;
   padding-bottom: 5px;
   position: fixed;
+  z-index: 600;
   width: 100%;
 }
 
@@ -147,7 +148,6 @@ img {
 .ContentHolder {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 15px;
   background-color: #de1717;
 }
 
@@ -234,18 +234,105 @@ h2 {
 }
 
 .projectCard {
-  display: inline-flex;
-  min-width: fit-content;
-  max-height: 250px;
+  display: flex;
+  width: inherit;
+  height: 500px;
   padding: 0px;
-  border-radius: 15px;
-  margin: 5px;
-  background-color: aliceblue;
+  transition: 0.25s ease-in;
 }
 
-.projectCard img {
-  display: flex;
-  max-height: 250px;
+.projectCard:hover {
+  filter: brightness(100%) blur(0);
+}
+
+.projectCard:hover h3 {
+  margin-top: 100px;
+}
+
+.projectCard:hover .imagehold {
+  filter: brightness(100%) blur(0);
+}
+
+.projectCard:hover .projectDetails {
+  filter: brightness(100%) blur(0);
+}
+
+.projectCard:hover .projecticon {
+  margin-left: 275;
+}
+
+.projectCard:hover a {
+  color: #ffffff;
+  background-color: #141414;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.projectCard:hover p {
+  color: #141414;
+}
+
+.imagehold {
+  width: 50%;
+  transition: 1s linear;
+  background-image: url(/Assets/code.jpeg);
+  background-size: cover;
+  filter: brightness(50%) blur(1px);
+  transition: 0.25s ease-in;
+}
+
+.imagehold h3 {
+  transition: 0.25s ease-in;
+  text-align: end;
+  margin-top: 200px;
+  margin-right: 10px;
+  color: rgb(239, 240, 239);
+  text-shadow: rgb(0, 0, 0) 2px 2px 5px;
+  font-size: 50px;
+}
+
+.projectDetails h3 {
+  transition: 0.25s ease-in;
+  text-align: start;
+  margin-top: 200px;
+  margin-left: 10px;
+  color: var(--primary-color);
+  font-size: 50px;
+}
+
+.projectDetails {
+  width: 50%;
+  filter: brightness(50%) blur(1px);
+  background-color: #f5f5f5;
+  transition: 0.25s ease-in;
+}
+
+.projecticon {
+  position: absolute;
+  height: 250px;
+  z-index: 2;
+  margin-left: 525px;
+  margin-top: 125px;
+  filter: brightness(100%);
+  transition: 0.25s ease-in;
+}
+
+.projectDetails a {
+  transition: 1.5s ease-in;
+  color: #f5f5f5;
+}
+
+.projectDetails p {
+  text-align: center;
+  width: 100%;
+  width: 60%;
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 1%;
+  justify-self: center;
+  transition: 1s ease-in;
+  color: #f5f5f5;
 }
 
 /* Work Cards */
@@ -256,49 +343,116 @@ h2 {
   justify-content: center;
   align-items: center;
   height: 60vh;
-}
-
-.workCard {
+  min-height: 800px;
+  max-height: 900px;
+  z-index: 1;
 }
 
 .workCard {
   width: 50px;
   height: 50vh;
+  min-height: 600px;
+  max-height: 700px;
   box-shadow: 0 0 10px black;
   flex: 1;
   background: white no-repeat scroll center;
-  transition: all 0.33s linear;
+  transition: all 0.5s ease-in;
   filter: grayscale(1);
 }
 
 #workCard-1 {
-  background-image: url("/Assets/capstone.jpg");
-  background-size: cover;
+  background-image: url("/Assets/code.jpeg");
 }
 #workCard-2 {
   background-image: url("/Assets/OxfamQuebec.png");
-  background-size: cover;
 }
 #workCard-3 {
   background-image: url("/Assets/innovapost.jpg");
-  background-size: cover;
 }
 #workCard-4 {
   background-image: url("/Assets/innovapost.jpg");
-  background-size: cover;
 }
 
 .workCard h3 {
-  position: absolute;
-  left: 0;
-  bottom: 100px;
+  position: relative;
+  left: -55px;
+  width: 255px;
+  bottom: -200px;
   font-size: 40px;
   transform: rotate(-90deg);
+  color: var(--light-color);
+  text-shadow: rgb(0, 0, 0) 5px 5px 5px;
+  transition: all 0.5s ease-in;
+}
+
+.workCard p {
+  color: #f5f5f500;
+  position: relative;
+  left: 0;
+  bottom: -200px;
+  font-size: 20px;
+  transition: all 1s ease-in-out;
+  width: 650px;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+}
+
+.workCard a {
+  display: block;
+  color: #f5f5f500;
+  position: relative;
+  left: 0;
+  bottom: -200px;
+  font-size: 20px;
+  transition: all 1s ease-in-out;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 40px;
+}
+
+.workTags ul {
+  margin-top: 10px;
+  display: flex;
+}
+
+.workTags p {
+  border-radius: 20px;
+  width: fit-content;
+  margin-right: 5px;
+  padding-right: 10px;
 }
 
 .active {
   flex: 6;
   filter: grayscale(0);
+}
+
+.active h3 {
+  left: 0;
+  min-width: 255px;
+  width: auto;
+  transform: rotate(0) translate(20%, -200%);
+  position: relative;
+}
+
+.active p {
+  transform: rotate(0) translate(75px, -75px);
+  position: relative;
+  color: #f5f5f5;
+  text-shadow: rgba(0, 0, 0, 0.322) 2px 2px 5px;
+  background-color: #14141486;
+}
+
+.active a {
+  transform: rotate(0) translate(75px, -75px);
+  position: relative;
+  color: #f5f5f5;
+  text-shadow: rgba(0, 0, 0, 0.185) 2px 2px 5px;
+  background-color: #1414147c;
 }
 
 /* Work Experience */
@@ -346,6 +500,36 @@ h2 {
   color: var(--light-color);
   padding: 2px;
   border-radius: 10px;
+}
+
+/* Contact */
+
+.contactsection {
+}
+
+.contactsection .contactform {
+  display: grid;
+  padding-right: 25%;
+  padding-left: 25%;
+  align-items: center;
+  font-size: larger;
+  grid-template-columns: 0% 100%;
+}
+
+.contactform input {
+  font-size: larger;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 10px;
+}
+.contactform textarea {
+  font-size: larger;
+  min-height: 300px;
+  padding: 10px;
+}
+
+.contactsection h3 {
+  text-align: center;
 }
 
 /* Footer */

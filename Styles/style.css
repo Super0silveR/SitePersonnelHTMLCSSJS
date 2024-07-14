@@ -367,7 +367,7 @@ h2 {
   background-image: url("/Assets/OxfamQuebec.png");
 }
 #workCard-3 {
-  background-image: url("/Assets/innovapost.jpg");
+  background-image: url("/Assets/innovapost.PNG");
 }
 #workCard-4 {
   background-image: url("/Assets/innovapost.jpg");
@@ -375,10 +375,10 @@ h2 {
 
 .workCard h3 {
   position: relative;
-  left: -55px;
   width: 255px;
-  bottom: -200px;
+  bottom: -130px;
   font-size: 40px;
+  left: -50px;
   transform: rotate(-90deg);
   color: var(--light-color);
   text-shadow: rgb(0, 0, 0) 5px 5px 5px;
@@ -389,7 +389,7 @@ h2 {
   color: #f5f5f500;
   position: relative;
   left: 0;
-  bottom: -200px;
+  bottom: -130px;
   font-size: 20px;
   transition: all 1s ease-in-out;
   width: 650px;
@@ -402,8 +402,7 @@ h2 {
   display: block;
   color: #f5f5f500;
   position: relative;
-  left: 0;
-  bottom: -200px;
+  bottom: -130px;
   font-size: 20px;
   transition: all 1s ease-in-out;
   width: fit-content;
@@ -432,7 +431,6 @@ h2 {
 }
 
 .active h3 {
-  left: 0;
   min-width: 255px;
   width: auto;
   transform: rotate(0) translate(20%, -200%);
@@ -444,7 +442,7 @@ h2 {
   position: relative;
   color: #f5f5f5;
   text-shadow: rgba(0, 0, 0, 0.322) 2px 2px 5px;
-  background-color: #14141486;
+  background-color: #141414cc;
 }
 
 .active a {
@@ -452,7 +450,7 @@ h2 {
   position: relative;
   color: #f5f5f5;
   text-shadow: rgba(0, 0, 0, 0.185) 2px 2px 5px;
-  background-color: #1414147c;
+  background-color: #141414be;
 }
 
 /* Work Experience */
@@ -507,13 +505,59 @@ h2 {
 .contactsection {
 }
 
+.contactHolder {
+  display: flex;
+  margin-top: 30px;
+}
+
 .contactsection .contactform {
+  width: 50%;
+  padding-right: 5%;
+  padding-left: 5%;
   display: grid;
-  padding-right: 25%;
-  padding-left: 25%;
   align-items: center;
   font-size: larger;
   grid-template-columns: 0% 100%;
+}
+
+.myinfo {
+  width: 50%;
+  vertical-align: middle;
+  border-right: #141414;
+  border-style: solid;
+  border-width: 0;
+  border-right-width: 1px;
+  text-align: center;
+  transition: all 1.25 linear;
+}
+
+.myinfo h3 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.myinfo h4 {
+  margin-bottom: 10px;
+  margin-top: 30px;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.myinfo a {
+  margin-bottom: 20px;
+  font-weight: 300;
+  font-size: 20px;
+  color: #141414;
+  padding: 5px;
+  background-color: #00cccc;
+  border-radius: 5px;
+  transition: all 0.25s linear;
+}
+
+.myinfo a:hover {
+  color: #f5f5f5;
+  background-color: #141414;
 }
 
 .contactform input {
@@ -528,6 +572,14 @@ h2 {
   padding: 10px;
 }
 
+.contactform h3 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  display: block;
+  width: max-content;
+}
+
 .contactsection h3 {
   text-align: center;
 }
@@ -539,4 +591,38 @@ footer {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+footer img {
+  height: 75px;
+}
+
+.Socials {
+  margin: 100px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.Socials img {
+  padding: 0px 20px;
+}
+
+#Github img {
+  filter: invert(100%);
+}
+
+#Gmail img {
+  filter: grayscale(100%);
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 0px;
+  border-right-width: 1px;
+}
+
+#LinkedIn img {
+  filter: grayscale(100%) contrast(500%) invert(100%);
+  border-color: #000000;
+  border-style: solid;
+  border-width: 0px;
+  border-right-width: 1px;
 }

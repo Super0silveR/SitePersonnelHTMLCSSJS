@@ -36,7 +36,25 @@ body {
 
 a {
   text-decoration: none;
-  color: #333;
+  color: var(--light-color);
+}
+
+h2 {
+  color: var(--light-color);
+}
+
+h3 {
+  color: var(--light-color);
+}
+h4 {
+  color: var(--light-color);
+}
+h5 {
+  color: var(--light-color);
+}
+
+p {
+  color: var(--light-color);
 }
 
 ul {
@@ -148,7 +166,7 @@ img {
 .ContentHolder {
   max-width: 1300px;
   margin: 0 auto;
-  background-color: #de1717;
+  background-color: var(--dark-color);
 }
 
 /* about */
@@ -281,6 +299,18 @@ h2 {
   transition: 0.25s ease-in;
 }
 
+#DowntownApp {
+  background-image: url("../Assets/downtown.png");
+}
+
+#myWebsite {
+  background-image: url("../Assets/eliaswebsite.png");
+}
+
+#comingsoon {
+  background-image: url("../Assets/commingsoon.png");
+}
+
 .imagehold h3 {
   transition: 0.25s ease-in;
   text-align: end;
@@ -386,12 +416,13 @@ h2 {
 }
 
 .workCard p {
+  display: inline;
   color: #f5f5f500;
   position: relative;
   left: 0;
   bottom: -130px;
   font-size: 20px;
-  transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
   width: 650px;
   border-radius: 5px;
   padding: 5px;
@@ -438,6 +469,7 @@ h2 {
 }
 
 .active p {
+  display: block;
   transform: rotate(0) translate(75px, -75px);
   position: relative;
   color: #f5f5f5;
@@ -523,7 +555,7 @@ h2 {
 .myinfo {
   width: 50%;
   vertical-align: middle;
-  border-right: #141414;
+  border-right: var(--light-color);
   border-style: solid;
   border-width: 0;
   border-right-width: 1px;

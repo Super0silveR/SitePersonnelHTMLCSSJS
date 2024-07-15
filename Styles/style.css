@@ -22,16 +22,35 @@
     opacity: 1;
   }
 }
-
 /***************/
 
 body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background: var(--dark-color);
   transition: 0.5s;
   animation: fadeIn 1s;
+  background: linear-gradient(
+    to right,
+    #000000 0%,
+    #252525 19%,
+    rgb(51, 51, 51) 40%,
+    #464545 60%,
+    #1f1f1f 83%,
+    #000000 100%
+  );
+  background-size: 10000px 100%;
+  animation: bg 15s linear infinite;
+}
+
+@keyframes bg {
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: 10000px;
+  }
 }
 
 a {
@@ -166,7 +185,6 @@ img {
 .ContentHolder {
   max-width: 1300px;
   margin: 0 auto;
-  background-color: var(--dark-color);
 }
 
 /* about */

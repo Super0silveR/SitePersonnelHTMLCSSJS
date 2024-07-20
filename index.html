@@ -25,7 +25,7 @@
       <div class="container">
         <div class="logo">
           <a href="index.html">
-            <img src="Design/Logo.png" alt="logo" />
+            <img src="Design/Logo.png" alt="logo" id="mainlogo" />
           </a>
         </div>
         <div class="main-menu">
@@ -44,6 +44,17 @@
             </li>
           </ul>
         </div>
+        <div class="dropmenu">
+          <a href="javascript:void(0)" onclick="burgerMenu()"
+            ><img src="Assets/Hamburger_icon.svg.png" alt="" id="burgericon"
+          /></a>
+        </div>
+      </div>
+      <div class="optionmenu" id="optionmenu">
+        <a href="#about" onclick="closeOptionMenu()">Home</a>
+        <a href="#workCards" onclick="closeOptionMenu()">Work Experience</a>
+        <a href="#projects" onclick="closeOptionMenu()">Projects</a>
+        <a href="#contactsection" onclick="closeOptionMenu()">Contact</a>
       </div>
     </nav>
     <div class="ContentHolder">
@@ -54,51 +65,11 @@
         <div class="introduction">
           <h1>Hi I'm Elias!</h1>
           <div style="display: flex">
-            <h2>I am a&nbsp;</h2>
-            <h2 class="softwareEng"><i>Software Engineer</i></h2>
+            <h2>I am a Software Engineer</h2>
           </div>
         </div>
       </div>
       <div class="workCards" id="workCards">
-        <div class="workCard" id="workCard-1">
-          <h3>DowntownApp</h3>
-          <p>
-            Jan 2023 - Feb 2024 | Full Stack Developper <br />Collaborated
-            closely with the team to design and implement a clean architecture,
-            emphasizing scalability and efficiency while ensuring the frontend
-            design focused on user experience and intuitive interfaces. I took
-            ownership of both backend and frontend development tasks, leveraging
-            .NET Core and TypeScript React to deliver high-quality solutions.
-            Engaging in constructive dialogue with clients throughout the
-            project lifecycle, I actively listened to their feedback and
-            incorporated it into the development process. Additionally, I
-            demonstrated a commitment to quality by developing comprehensive
-            test suites for the application, ensuring its reliability and
-            maintainability.
-          </p>
-          <div class="workTags">
-            <ul>
-              <li>
-                <p>.NET Core 6</p>
-              </li>
-              <li>
-                <p>React</p>
-              </li>
-              <li>
-                <p>Vite</p>
-              </li>
-              <li>
-                <p>CQRS</p>
-              </li>
-              <li>
-                <p>MadiatR</p>
-              </li>
-              <li>
-                <p>PostgreSQL</p>
-              </li>
-            </ul>
-          </div>
-        </div>
         <div class="workCard" id="workCard-2">
           <h3>Oxfam</h3>
           <p>
@@ -177,6 +148,45 @@
               </li>
               <li>
                 <p>Front-End</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="workCard" id="workCard-1">
+          <h3>DowntownApp</h3>
+          <p>
+            Jan 2023 - Feb 2024 | Full Stack Developper <br />Collaborated
+            closely with the team to design and implement a clean architecture,
+            emphasizing scalability and efficiency while ensuring the frontend
+            design focused on user experience and intuitive interfaces. I took
+            ownership of both backend and frontend development tasks, leveraging
+            .NET Core and TypeScript React to deliver high-quality solutions.
+            Engaging in constructive dialogue with clients throughout the
+            project lifecycle, I actively listened to their feedback and
+            incorporated it into the development process. Additionally, I
+            demonstrated a commitment to quality by developing comprehensive
+            test suites for the application, ensuring its reliability and
+            maintainability.
+          </p>
+          <div class="workTags">
+            <ul>
+              <li>
+                <p>.NET Core 6</p>
+              </li>
+              <li>
+                <p>React</p>
+              </li>
+              <li>
+                <p>Vite</p>
+              </li>
+              <li>
+                <p>CQRS</p>
+              </li>
+              <li>
+                <p>MadiatR</p>
+              </li>
+              <li>
+                <p>PostgreSQL</p>
               </li>
             </ul>
           </div>

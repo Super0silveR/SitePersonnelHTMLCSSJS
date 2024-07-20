@@ -329,19 +329,27 @@
           <div class="projectTags">
             <ul>
               <li>
-                <a>Web Developement (?)</a>
+                <a onclick="clickTagHandler('webdev')" id="webdev"
+                  >Web Developement</a
+                >
               </li>
               <li>
-                <a>Embedded Programing (?)</a>
+                <a onclick="clickTagHandler('embedded')" id="embedded"
+                  >Embedded Programing</a
+                >
               </li>
               <li>
-                <a>ML/AI (?)</a>
+                <a onclick="clickTagHandler('ml/ai')" id="ml/ai">ML/AI</a>
               </li>
               <li>
-                <a>Mobile Developement (?)</a>
+                <a onclick="clickTagHandler('mobile')" id="mobile"
+                  >Mobile Developement</a
+                >
               </li>
               <li>
-                <a>Other (?)</a>
+                <a onclick="clickTagHandler('other')" class="active" id="other"
+                  >Other</a
+                >
               </li>
             </ul>
           </div>
@@ -349,7 +357,7 @@
         <div class="ProjectCardHolder">
           <ul>
             <li>
-              <div class="projectCard">
+              <div class="projectCard" id="webdev">
                 <div class="imagehold" id="DowntownApp">
                   <h3>Capstone</h3>
                 </div>
@@ -367,7 +375,7 @@
               </div>
             </li>
             <li>
-              <div class="projectCard">
+              <div class="projectCard" id="webdev">
                 <div class="imagehold" id="myWebsite">
                   <h3>This</h3>
                 </div>
@@ -385,7 +393,7 @@
               </div>
             </li>
             <li>
-              <div class="projectCard">
+              <div class="projectCard" id="other">
                 <div class="imagehold" id="comingsoon">
                   <h3>Comming</h3>
                 </div>

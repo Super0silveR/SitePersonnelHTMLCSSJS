@@ -1,19 +1,83 @@
 let workCardElement = document.querySelectorAll(".workCard");
+let projectTagsElement = document.querySelectorAll(".projectTags a");
+let projectCards = document.querySelectorAll(".projectCard");
 
-let removeActiveClasses = () => {
+projectCards.forEach((pCard) => {
+  console.log(pCard.classList);
+});
+
+projectTagsElement.forEach((tag) => {
+  var count = 0;
+  projectCards.forEach((pCard) => {
+    if (pCard.id == tag.id) {
+      count = count + 1;
+    }
+  });
+  tag.innerHTML = tag.innerHTML + " (" + count + ")";
+});
+
+let removeActiveWorkCard = () => {
   workCardElement.forEach((workCard) => {
     workCard.classList.remove("active");
   });
 };
 
-console.log(workCardElement);
-
 workCardElement.forEach((workCard) => {
-  workCard.addEventListener("mouseover", () => {
-    removeActiveClasses();
-    workCard.classList.add("active");
-  });
+  if (screen.width > 1100) {
+    workCard.addEventListener("mouseover", () => {
+      removeActiveWorkCard();
+      workCard.classList.add("active");
+    });
+  }
 });
+
+let removeActiveProjectTag = () => {
+  projectTagsElement.forEach((tag) => {
+    tag.classList.remove("active");
+  });
+};
+
+let displayAllProjects = () => {
+  projectCards.forEach((pCard) => {
+    pCard.classList.remove("hidden");
+  });
+};
+
+let displayZeroProjects = () => {
+  projectCards.forEach((pCard) => {
+    pCard.classList.add("hidden");
+  });
+};
+
+let displayProjectsByTag = (tag) => {
+  projectCards.forEach((pCard) => {
+    if (pCard.id === tag) {
+      pCard.classList.remove("hidden");
+    }
+  });
+};
+
+function clickTagHandler(tagid) {
+  var tag = document.getElementById(tagid);
+  if (tag.classList.contains("active")) {
+    tag.classList.remove("active");
+    displayAllProjects();
+  } else {
+    removeActiveProjectTag();
+    displayZeroProjects();
+    displayProjectsByTag(tagid);
+    tag.classList.add("active");
+  }
+  return;
+}
+
+function projectSelectHandler(tagid) {
+  projectCards.forEach((pCard) => {
+    if (project_tag_dict[tagid].contains(pCard.classList)) {
+      return false;
+    }
+  });
+}
 
 function burgerMenu() {
   var menu = document.getElementById("optionmenu");
@@ -27,12 +91,4 @@ function burgerMenu() {
 function closeOptionMenu() {
   var menu = document.getElementById("optionmenu");
   menu.style.display = "none";
-}
-
-function openWorkCard(id) {
-  var card = document.getElementById(id);
-}
-
-function closeWorkCard(id) {
-  var card = document.getElementById(id);
 }

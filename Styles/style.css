@@ -280,7 +280,7 @@ h2 {
 
 /* Projects */
 
-@media (max-width: 799px) {
+@media (max-width: 1100px) {
   .projects {
     display: inline;
     background-color: rgba(255, 255, 255, 0.151);
@@ -289,7 +289,7 @@ h2 {
   }
 
   .projects .projectMenu {
-    margin-top: 25px;
+    margin-top: 100px;
     font-size: larger;
     display: grid;
     grid-template-columns: 20% 80%;
@@ -306,15 +306,18 @@ h2 {
 
   .projectTags a {
     margin: 5px;
-  }
-
-  .projectTags a {
     padding: 10px;
     border-radius: 5px;
     border-width: 2px;
     border-color: #00cccc;
     border-style: solid;
-    transition: 0.5s;
+    transition: 0.2s;
+  }
+
+  .projectTags .active {
+    border-color: var(--secondary-color);
+    background-color: var(--light-color);
+    color: var(--dark-color);
   }
 
   .projectTags a:hover {
@@ -323,13 +326,13 @@ h2 {
   }
 
   .ProjectCardHolder {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 75px;
     text-align: center;
   }
 
   .projectCard {
-    margin: 50px 50px;
+    margin: 15px 15px;
     border-radius: 15px;
     display: block;
     width: inherit;
@@ -337,33 +340,33 @@ h2 {
     transition: 0.25s ease-in;
   }
 
-  .projectCard:hover {
+  .projectCard {
     filter: brightness(100%) blur(0);
   }
 
   .projectCard:hover h3 {
   }
 
-  .projectCard:hover .imagehold {
+  .projectCard .imagehold {
     filter: brightness(100%) blur(0);
   }
 
-  .projectCard:hover .projectDetails {
+  .projectCard .projectDetails {
     filter: brightness(100%) blur(0);
   }
 
-  .projectCard:hover .projecticon {
+  .projectCard .projecticon {
     margin-left: 275;
   }
 
-  .projectCard:hover a {
+  .projectCard a {
     color: #ffffff;
     background-color: #141414;
     border-radius: 10px;
     padding: 5px;
   }
 
-  .projectCard:hover p {
+  .projectCard p {
     color: #141414;
   }
 
@@ -382,7 +385,7 @@ h2 {
     margin-right: 10px;
     color: rgb(239, 240, 239);
     text-shadow: rgb(0, 0, 0) 2px 2px 5px;
-    font-size: 50px;
+    font-size: 30px;
   }
 
   .projectDetails h3 {
@@ -390,7 +393,7 @@ h2 {
     text-align: center;
     margin-left: 10px;
     color: var(--primary-color);
-    font-size: 50px;
+    font-size: 30px;
   }
 
   .projectDetails {
@@ -422,14 +425,14 @@ h2 {
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
-    margin-bottom: 1%;
+    margin-bottom: 10px;
     justify-self: center;
     transition: 1s ease-in;
-    color: #f5f5f5;
+    color: #000000;
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1101px) {
   .projects {
     display: inline;
     background-color: rgba(255, 255, 255, 0.151);
@@ -464,6 +467,12 @@ h2 {
     border-color: #00cccc;
     border-style: solid;
     transition: 0.5s;
+  }
+
+  .projectTags .active {
+    border-color: var(--secondary-color);
+    background-color: var(--light-color);
+    color: var(--dark-color);
   }
 
   .projectTags a:hover {
@@ -580,6 +589,10 @@ h2 {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 #DowntownApp {
   background-image: url("../Assets/downtown.png");
 }
@@ -602,6 +615,7 @@ h2 {
   .workCard {
     padding: 0px 10px;
     background-size: cover;
+    padding: 50px 0px;
   }
 
   .workCard h3 {
@@ -615,10 +629,10 @@ h2 {
   }
 
   .workCard p {
-    margin: 0 auto;
+    margin: 5px 5px;
     display: block;
-    color: #f5f5f500;
-    background-color: rgba(0, 0, 0, 0);
+    color: #f5f5f5;
+    background-color: rgba(0, 0, 0, 0.61);
     font-size: 20px;
     transition: all 1s ease-in-out;
     width: auto;
@@ -633,7 +647,7 @@ h2 {
     flex-wrap: wrap;
   }
 
-  .workCard ul p {
+  .workcard ul p {
     width: auto;
     text-align: center;
     margin: 10px 5px;
@@ -666,13 +680,6 @@ h2 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-  }
-
-  .active ul p {
-    width: auto;
-    text-align: center;
-    margin: 10px 5px;
-    padding: 5px 10px;
   }
 }
 
@@ -933,7 +940,7 @@ h2 {
   text-align: center;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1100px) {
   .contactHolder {
     display: block;
   }

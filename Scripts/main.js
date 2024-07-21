@@ -92,3 +92,40 @@ function closeOptionMenu() {
   var menu = document.getElementById("optionmenu");
   menu.style.display = "none";
 }
+
+//#region Translation
+
+/* Work in Progress */
+
+const language = {
+  en: {
+    navbar: {
+      home: "Home",
+      workExperience: "Work Experience",
+      projects: "Projects",
+      contact: "Contact",
+    },
+    burgerMenu: {
+      home: "Home",
+      workExperience: "Work Experience",
+      projects: "Projects",
+      contact: "Contact",
+    },
+    about: { intro: "Hi I'm Elias!", bio: "I'm a Software Engineer" },
+    workCards: {
+      oxfam: {
+        desc: "Jun 2019 - Aug 2019 | Administration Associate <br />Developed and delivered a comprehensive training program for over 50 employees and staff members, empowering them with essential skills to utilize Box effectively. I promptly investigated and resolved IT issues, ensuring uninterrupted workflow and minimizing downtime. Additionally, I conducted extensive research to identify and evaluate communication software solutions that met strict security and compliance requirements.",
+        tags: { box: "Box" },
+      },
+      innovapost1:
+        "Sep 2022 - Dec 2022 | Data Analytics CO-OP<br />Identified and rectified over 20 failing Teradata jobs, managing datasets of up to 100 million entries during a version migration process. I crafted and implemented three comprehensive test plans for Teradata jobs, meticulously aligning with company standards and precise workload estimations. Additionally, I effectively remediated failing jobs through clear communication with fellow developers and close collaboration with the Quality Assurance team.",
+      innovapost2: "",
+      capstone: "",
+    },
+  },
+  fr: {},
+  es: {},
+  jp: {},
+};
+
+//#endregion

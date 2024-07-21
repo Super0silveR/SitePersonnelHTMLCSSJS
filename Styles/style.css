@@ -31,16 +31,15 @@ body {
   transition: 0.5s;
   animation: fadeIn 1s;
   background: linear-gradient(
-    to right,
+    to bottom,
     #000000 0%,
-    #252525 19%,
-    rgb(51, 51, 51) 40%,
-    #464545 60%,
-    #1f1f1f 83%,
+    #120202 25%,
+    #000000 50%,
+    #001414 75%,
     #000000 100%
   );
-  background-size: 10000px 100%;
-  animation: bg 15s linear infinite;
+  background-size: 5000px 5000px;
+  animation: bg 6s linear infinite;
 }
 
 @keyframes bg {
@@ -49,7 +48,7 @@ body {
   }
 
   100% {
-    background-position-x: 10000px;
+    background-position-y: 10000px;
   }
 }
 
@@ -203,6 +202,32 @@ img {
   padding: 0 15px;
 }
 
+.divspan {
+  margin-top: -50px; /* Size of fixed header */
+  padding-bottom: 50px;
+  display: block;
+}
+
+.divider {
+  display: flex;
+  margin: 50px 0;
+}
+.divider h1 {
+  font-weight: 200;
+  font-style: italic;
+  min-width: 30%;
+  text-align: end;
+  margin-right: 10px;
+}
+
+.divider div {
+  width: 90%;
+  height: 25px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: white;
+}
+
 /* Buttons */
 
 .btn {
@@ -267,15 +292,62 @@ img {
 
 h1 {
   color: var(--light-color);
+  font-weight: 400;
 }
 h2 {
   color: var(--light-color);
+  font-weight: 400;
 }
 
 .softwareEng {
   color: transparent;
   background: linear-gradient(220deg, var(--primary-color), var(--light-color));
   background-clip: text;
+}
+
+.degree {
+  display: flex;
+}
+
+.degree img {
+}
+
+.degree p {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.tech-grid img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 10px;
+}
+
+.fm img {
+  width: 75px;
+  height: 75px;
+}
+
+.tools img {
+  width: 60px;
+  height: 60px;
+}
+
+.tech-grid div {
+}
+
+.tech-grid li {
+  justify-self: stretch;
+  align-self: center;
+}
+
+.tech-grid ul {
+  margin: 0 10%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Projects */
@@ -291,8 +363,10 @@ h2 {
   .projects .projectMenu {
     margin-top: 100px;
     font-size: larger;
-    display: grid;
-    grid-template-columns: 20% 80%;
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 15px;
   }
 
   .projectTags ul {
@@ -326,8 +400,6 @@ h2 {
   }
 
   .ProjectCardHolder {
-    padding-top: 0px;
-    padding-bottom: 75px;
     text-align: center;
   }
 
@@ -443,7 +515,8 @@ h2 {
   .projects .projectMenu {
     margin-top: 25px;
     font-size: larger;
-    display: grid;
+    display: flex;
+    justify-content: center;
     grid-template-columns: 20% 80%;
   }
 
@@ -482,7 +555,6 @@ h2 {
 
   .ProjectCardHolder {
     padding-top: 50px;
-    padding-bottom: 75px;
     text-align: center;
   }
 
@@ -613,6 +685,7 @@ h2 {
   }
 
   .workCard {
+    margin: auto 10px;
     padding: 0px 10px;
     background-size: cover;
     padding: 50px 0px;
@@ -623,7 +696,7 @@ h2 {
     position: relative;
     font-size: 40px;
     color: var(--light-color);
-    text-shadow: rgb(0, 0, 0) 1px 0px 10px;
+    text-shadow: 0 0 5px #000000;
     transition: all 1s ease-in;
     text-align: center;
   }
@@ -632,13 +705,19 @@ h2 {
     margin: 5px 5px;
     display: block;
     color: #f5f5f5;
-    background-color: rgba(0, 0, 0, 0.61);
+    background-color: rgba(0, 0, 0, 0.836);
     font-size: 20px;
     transition: all 1s ease-in-out;
     width: auto;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
+  }
+
+  .workTags p {
+    border-color: #00cccc;
+    border-style: solid;
+    padding: 5px 5px;
   }
 
   .workCard ul {
@@ -654,32 +733,19 @@ h2 {
     padding: 5px 10px;
   }
 
-  .active h3 {
-    position: relative;
-    font-size: 40px;
-    color: var(--light-color);
-    text-shadow: rgb(0, 0, 0) 1px 0px 10px;
-    transition: all 1s ease-in;
-    text-align: center;
-  }
-
-  .active p {
-    margin: 0 auto;
-    display: block;
-    color: #f5f5f5;
-    background-color: rgba(0, 0, 0, 0.61);
+  .p-workdesc {
+    border-width: 5px;
+    border-color: var(--secondary-color);
+    border-style: solid;
     font-size: 20px;
-    transition: all 1s ease-in-out;
-    width: auto;
-    border-radius: 5px;
-    padding: 5px;
-    padding-left: 10px;
+    text-align: center;
+    font-style: italic;
   }
 
-  .active ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  .p-workdesc-wtitle {
+    color: #00cccc;
+    font-size: 25px;
+    font-weight: 600;
   }
 }
 
@@ -689,9 +755,6 @@ h2 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 60vh;
-    min-height: 800px;
-    max-height: 900px;
     z-index: 1;
   }
 
@@ -717,7 +780,7 @@ h2 {
     left: -50px;
     transform: rotate(-90deg);
     color: var(--light-color);
-    text-shadow: rgb(0, 0, 0) 5px 5px 5px;
+    text-shadow: 0 0 3px #000000;
     transition: all 1s ease-in;
   }
 
@@ -752,11 +815,13 @@ h2 {
 
   .workTags ul {
     margin-top: 10px;
-    display: inline;
+    display: flex;
   }
 
   .workTags p {
     border-radius: 20px;
+    border-color: #00cccc00;
+    border-style: solid;
     width: fit-content;
     margin-right: 5px;
     padding-right: 10px;
@@ -794,6 +859,41 @@ h2 {
 
   .active ul {
     display: flex;
+  }
+
+  .active .workTags p {
+    border-color: #00cccc;
+    border-style: solid;
+  }
+
+  .p-workdesc {
+    border-width: 0px;
+    border-color: #de171700;
+    border-style: solid;
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .p-workdesc-wtitle {
+    color: #00cccc00;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .active .p-workdesc {
+    border-width: 5px;
+    border-color: var(--secondary-color);
+    border-style: solid;
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .active .p-workdesc-wtitle {
+    color: #00cccc;
+    font-size: 25px;
+    font-weight: 600;
   }
 }
 

@@ -55,7 +55,7 @@ Feel free to tweak the code or re-use some assets. This website is static, so th
 
 ## Contact
 
-Elias Mahamane Sidi - elias.sidi@gmail.com
+Elias Mahamane Sidi - <elias.sidi@gmail.com>
 
 Project Link: https://github.com/your_username/repository_name
 

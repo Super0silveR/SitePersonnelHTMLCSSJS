@@ -318,8 +318,23 @@ h2 {
   }
 }
 
+@media (max-width: 1100px) {
+  .degree {
+    display: grid;
+  }
+  .degree img {
+    justify-self: center;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1099px) {
+  .degree {
+    display: flex;
+  }
+}
+
 .degree {
-  display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px 50px;

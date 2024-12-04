@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="Design/Logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="Design/Logo.png" alt="logo" id="mainlogo" />
+          </a>
+        </div>
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="btn" href="#">Fun</a>
+            </li>
+            <li>
+              <a class="btn" href="#c">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="dropmenu">
+          <a href="javascript:void(0)" onclick="burgerMenu()"
+            ><img src="Assets/Hamburger_icon.svg.png" alt="" id="burgericon"
+          /></a>
+        </div>
+      </div>
+      <div class="optionmenu" id="optionmenu">
+        <a href="#about" onclick="closeOptionMenu()">Home</a>
+        <a href="#workCards" onclick="closeOptionMenu()">Work Experience</a>
+        <a href="#projects" onclick="closeOptionMenu()">Projects</a>
+        <a href="#contactsection" onclick="closeOptionMenu()">Contact</a>
+      </div>
+    </nav>
+    <div class="fun-grid-container">
+      <div class="fun-grid-item">
+        <a href="Funs/Snake.html">
+          <img src="Assets/snake-game.jpg" alt="Snake Game" />
+          <div class="fun-title">Snake</div>
+        </a>
+      </div>
+      <div class="fun-grid-item">
+        <div class="coming-soon">
+          <img src="Assets/coming-soon.jpg" alt="Coming Soon" />
+          <div class="fun-title">Coming Soon</div>
+        </div>
+      </div>
+      <div class="fun-grid-item">
+        <div class="coming-soon">
+          <img src="Assets/coming-soon.jpg" alt="Coming Soon" />
+          <div class="fun-title">Coming Soon</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

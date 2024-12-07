@@ -66,9 +66,30 @@
       <div style="margin-top: 20px">
         <button id="startButton">Start Game</button>
         <button id="pauseButton">Pause</button>
-        <p style="color: white; margin-bottom: auto">
+        <p style="color: white; margin-bottom: 10px">
           Use arrow keys to control the snake
         </p>
+        <div style="color: var(--light-color); margin-top: 15px">
+          <label for="gameSpeed">Game Speed: </label>
+          <input
+            type="range"
+            id="gameSpeed"
+            min="50"
+            max="200"
+            value="100"
+            step="10"
+            style="width: 200px; margin: 0 10px"
+          />
+          <span id="speedValue">100ms</span>
+        </div>
+        <div
+          style="color: var(--light-color); font-size: 24px; margin-top: 15px"
+        >
+          <span>Score: <span id="currentScore">0</span></span>
+          <span style="margin-left: 20px"
+            >High Score: <span id="highScoreDisplay">0</span></span
+          >
+        </div>
       </div>
     </div>
   </body>

@@ -243,6 +243,15 @@ img {
   transition: 0.5s;
 }
 
+.btn-fun {
+  background: var(--secondary-color);
+}
+
+.btn-fun:hover {
+  opacity: 0.8;
+  background: var(--third-color);
+}
+
 .btn:hover {
   opacity: 0.8;
   background-color: #141414;
@@ -1188,7 +1197,6 @@ footer img {
   transition: all 0.25s linear;
 }
 
-
 .fun-title {
   position: absolute;
   top: 50%;
@@ -1205,4 +1213,3 @@ footer img {
   position: relative;
   cursor: not-allowed;
 }
-

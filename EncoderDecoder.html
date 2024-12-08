@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encoder Decoder</title>
+    <link rel="stylesheet" href="Styles/style.css" />
+    <script src="Scripts/encoderdecoder.js"></script>
+    <link rel="shortcut icon" href="Design/Logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="encoder-container">
+      <div class="algorithm-section">
+        <label>Encryption Algorithm:</label>
+        <select id="algorithmSelect" onchange="updateKeyInterface()">
+          <option value="AES">Symmetric (AES)</option>
+          <option value="RSA">Asymmetric (RSA)</option>
+        </select>
+      </div>
+
+      <div class="key-section">
+        <div id="symmetricKey" class="key-input">
+          <label for="aesKey">Secret Key</label>
+          <input
+            type="text"
+            id="aesKey"
+            placeholder="Enter or generate secret key"
+          />
+        </div>
+        <div id="asymmetricKeys" class="key-input hidden">
+          <div class="key-input">
+            <label for="publicKey">Public Key</label>
+            <input type="text" id="publicKey" placeholder="Enter public key" />
+          </div>
+          <div class="key-input">
+            <label for="privateKey">Private Key</label>
+            <input
+              type="text"
+              id="privateKey"
+              placeholder="Enter private key"
+            />
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="generateKeys()">
+          Generate New Keys
+        </button>
+      </div>
+
+      <div class="message-section">
+        <div class="input-area">
+          <label for="inputMessage">Message</label>
+          <textarea
+            id="inputMessage"
+            placeholder="Enter your message here"
+          ></textarea>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="encodeMessage()">
+            Encode
+          </button>
+          <button class="btn btn-primary" onclick="decodeMessage()">
+            Decode
+          </button>
+        </div>
+        <div class="output-area">
+          <label for="outputMessage">Result</label>
+          <textarea id="outputMessage" readonly></textarea>
+        </div>
+      </div>
+
+      <div class="history-section">
+        <h3>History</h3>
+        <button class="btn btn-primary" onclick="clearHistory()">
+          Clear All
+        </button>
+        <div id="historyList"></div>
+      </div>
+    </div>
+  </body>
+</html>

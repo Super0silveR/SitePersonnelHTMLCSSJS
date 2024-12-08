@@ -4,9 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const startButton = document.getElementById("startButton");
   const pauseButton = document.getElementById("pauseButton");
 
-  const gridSize = 25;
+  const gridSize = 20;
   const tileCount = canvas.width / gridSize;
-  const gameSpeed = 100;
 
   let snake = [{ x: 10, y: 10 }];
   let food = { x: 15, y: 15 };
@@ -19,11 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let lastDirection = { dx: 0, dy: 0 };
   let directionQueue = [];
   let lastFrameTime = 0;
-  let lastMoveTime = 0;
-  const moveBuffer = 50; // Minimum time (ms) between direction changes
   let gameSpeedControl = document.getElementById("gameSpeed");
   let speedValue = document.getElementById("speedValue");
-  let currentGameSpeed = 100;
+  let currentGameSpeed = 16.6667;
   let lastKeyPressTime = 0;
   const keyPressBuffer = 50; // Minimum time between key presses
 
@@ -32,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     startButton.style.cursor = gameRunning ? "not-allowed" : "pointer";
 
     pauseButton.innerHTML = gamePaused ? "Resume" : "Pause";
+    pauseButton.style.backgroundColor = gamePaused ? "green" : "red";
     pauseButton.style.display = gameRunning ? "inline-block" : "none";
   }
 
@@ -53,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
       gameRunning = true;
       gamePaused = false;
       score = 0;
-      snake = [{ x: 0, y: 10 }];
-      dx = 1;
+      snake = [{ x: 10, y: 10 }];
+      dx = 0;
       dy = 0;
-      lastDirection = { dx: 1, dy: 0 };
+      lastDirection = { dx: 0, dy: 0 };
       directionQueue = [];
       generateFood();
       updateButtonStates();
@@ -114,7 +112,13 @@ document.addEventListener("DOMContentLoaded", function () {
       ctx.fillStyle = "white";
       ctx.font = "48px Arial";
       ctx.textAlign = "center";
-      ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+
+      // Draw each line of text separately with proper spacing
+      ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 60);
+
+      ctx.fillText("Score: " + score, canvas.width / 2, canvas.height / 2);
+
+      ctx.fillText("Restart with P", canvas.width / 2, canvas.height / 2 + 60);
     }
   }
 
@@ -135,7 +139,10 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Check for self collision
-    if (snake.some((segment) => segment.x === head.x && segment.y === head.y)) {
+    if (
+      snake.some((segment) => segment.x === head.x && segment.y === head.y) &&
+      score != 0
+    ) {
       if (score > highScore) {
         highScore = score;
         localStorage.setItem("snakeHighScore", highScore);
@@ -179,6 +186,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add keyboard controls with buffer
   document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      startGame();
+      return;
+    }
+
+    if (event.key === "p") {
+      togglePause();
+      return;
+    }
+
     if (!gameRunning || gamePaused) return;
 
     const currentTime = performance.now();

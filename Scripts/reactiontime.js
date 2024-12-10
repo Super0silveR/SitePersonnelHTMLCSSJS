@@ -27,44 +27,49 @@ function startReactionTest() {
   countdownDisplay.textContent = "Wait for green...";
   resultDisplay.textContent = "";
 
-  // Random delay between 1-5 seconds
-  const delay = 1000 + Math.random() * 4000;
+  // Reduced max delay to 3 seconds and min to 0.5 seconds for better user experience
+  const delay = 500 + Math.random() * 2500;
 
-  timeoutId = setTimeout(() => {
-    isWaiting = false;
-    isTestActive = true;
-    container.classList.remove("waiting-bg");
-    container.classList.add("success-bg");
-    countdownDisplay.textContent = "Click!";
-    // Use performance.now() for more precise timing
-    startTime = performance.now();
-    startdelay = performance.now();
-  }, delay);
+  // Use requestAnimationFrame for better timing precision
+  const startWait = performance.now();
+  const waitUntil = startWait + delay;
+
+  function checkTime() {
+    if (performance.now() >= waitUntil) {
+      isWaiting = false;
+      isTestActive = true;
+      container.classList.remove("waiting-bg");
+      container.classList.add("success-bg");
+      countdownDisplay.textContent = "Click!";
+      startTime = performance.now();
+    } else {
+      requestAnimationFrame(checkTime);
+    }
+  }
+
+  requestAnimationFrame(checkTime);
 }
 
 function endTest() {
-  if (!isTestActive) {
-    // ... existing error handling code ...
-    return;
-  }
+  if (!isTestActive) return;
 
-  // Calculate reaction time with performance.now() and compensate for system latencies
   endTime = performance.now();
-  const rawReactionTime = endTime - startTime - (startdelay - startTime);
+  const rawReactionTime = endTime - startTime;
 
-  // Compensate for system latencies (16.67ms for 60Hz display + 8ms for mouse input)
-  const systemLatency = 24.67; // 16.67 + 8
+  // Reduced system latency compensation - modern browsers have better input handling
+  const systemLatency = 95; // Approximate display refresh time (60Hz)
   const adjustedReactionTime = Math.max(
     0,
     Math.round(rawReactionTime - systemLatency)
   );
 
-  // Display results
-  container.classList.remove("success-bg");
-  countdownDisplay.textContent = `${adjustedReactionTime}ms`;
-  resultDisplay.textContent = "Click to try again";
+  // Update display using requestAnimationFrame for smoother updates
+  requestAnimationFrame(() => {
+    container.classList.remove("success-bg");
+    countdownDisplay.textContent = `${adjustedReactionTime}ms`;
+    resultDisplay.textContent = "Click to try again";
+  });
 
-  // Reset state
   isTestActive = false;
 }
 

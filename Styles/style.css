@@ -1168,6 +1168,7 @@ footer img {
   margin-left: 10%;
   margin-right: 10%;
 }
+
 .fun-grid-item {
   position: relative;
   width: 100%;
@@ -1216,8 +1217,9 @@ footer img {
 
 .encoder-container {
   max-width: 800px;
-  margin: 100px auto;
+  margin: 0px auto;
   padding: 20px;
+  padding-top: 100px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   backdrop-filter: blur(10px);
@@ -1311,8 +1313,9 @@ footer img {
 }
 
 #reaction-container {
-  margin: 150px auto;
+  margin: 0px auto;
   padding: 20px;
+  padding-top: 100px;
   max-width: 600px;
   height: 400px;
   display: flex;
@@ -1547,5 +1550,32 @@ footer img {
   .score-display {
     flex-direction: column;
     gap: 10px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .fun-grid-container {
+    display: block;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 150px;
+    margin: 0;
+  }
+
+  .fun-grid-item {
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+  }
+
+  .fun-grid-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .fun-title {
+    font-size: 3rem;
   }
 }

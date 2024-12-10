@@ -20,6 +20,176 @@
     />
     <link rel="shortcut icon" href="../Design/Logo.png" type="image/x-icon" />
     <script src="Scripts/snake.js"></script>
+    <style>
+      .settings-menu {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.95);
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid var(--primary-color);
+        z-index: 1000;
+        min-width: 300px;
+      }
+
+      .settings-content {
+        color: var(--light-color);
+      }
+
+      .settings-content h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+      }
+
+      .settings-group {
+        margin: 15px 0;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .settings-group label {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--light-color);
+      }
+
+      .controls-row {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .volume-control,
+      .speed-control {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      #settingsButton {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        border: none;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      #settingsButton:hover {
+        opacity: 0.8;
+      }
+
+      .score-display {
+        margin-top: 20px;
+        color: var(--light-color);
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .score-display div {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+
+      .game-container {
+        width: 100%;
+        max-width: 500px;
+        margin: 0px auto 0;
+        padding: 0 15px;
+      }
+
+      #canvas {
+        margin-top: 100px;
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+        border: 1px solid white;
+      }
+
+      @media (max-width: 600px) {
+        .settings-menu {
+          width: 90%;
+          max-width: 300px;
+        }
+
+        .controls-row {
+          flex-wrap: wrap;
+        }
+
+        .score-display {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      .mobile-controls {
+        display: none; /* Hidden by default */
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        padding: 0 20px;
+      }
+
+      .left-controls {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .right-controls {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .control-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(0, 204, 204, 0.8);
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .control-btn:active {
+        background-color: rgba(0, 204, 204, 1);
+        transform: scale(0.95);
+      }
+
+      @media (max-width: 768px) {
+        .mobile-controls {
+          display: block;
+        }
+
+        .game-container {
+          margin-bottom: 120px; /* Add space for controls */
+        }
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -56,58 +226,57 @@
       </div>
     </nav>
 
-    <div style="text-align: center; margin-top: 50px">
-      <canvas
-        id="canvas"
-        width="500"
-        height="500"
-        style="border: 1px solid white; margin-top: 100px"
-      ></canvas>
+    <div class="game-container">
+      <canvas id="canvas" width="500" height="500"></canvas>
       <div style="margin-top: 20px">
         <button id="startButton">Start Game</button>
         <button id="pauseButton">Pause</button>
+        <button id="settingsButton" onclick="toggleSettings()">
+          <i class="fas fa-cog"></i>
+        </button>
 
-        <!-- Sound controls group -->
-        <div style="margin-top: 10px">
-          <button id="muteButton"><i class="fas fa-volume-up"></i></button>
-          <button id="bgMuteButton"><i class="fas fa-music"></i></button>
-          <div style="display: inline-block; margin-left: 10px">
-            <input
-              type="range"
-              id="volumeControl"
-              min="0"
-              max="100"
-              value="50"
-              step="1"
-              style="width: 200px; vertical-align: middle"
-            />
-            <span id="volumeValue" style="color: var(--light-color)">50%</span>
+        <!-- Settings menu -->
+        <div id="settingsMenu" class="settings-menu">
+          <div class="settings-content">
+            <h3>Settings</h3>
+            <!-- Sound controls group -->
+            <div class="settings-group">
+              <label>Sound Controls</label>
+              <div class="controls-row">
+                <button id="muteButton">
+                  <i class="fas fa-volume-up"></i>
+                </button>
+                <button id="bgMuteButton"><i class="fas fa-music"></i></button>
+              </div>
+              <div class="volume-control">
+                <input
+                  type="range"
+                  id="volumeControl"
+                  min="0"
+                  max="100"
+                  value="50"
+                  step="1"
+                />
+                <span id="volumeValue">50%</span>
+              </div>
+            </div>
+
+            <!-- Game Speed control -->
+            <div class="settings-group">
+              <label for="gameSpeed">Game Speed</label>
+              <div class="speed-control">
+                <input
+                  type="range"
+                  id="gameSpeed"
+                  min="1"
+                  max="10"
+                  value="5"
+                  step="1"
+                />
+                <span id="speedValue">5x</span>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <p style="color: white; margin-top: 10px">
-          Use arrow keys to control the snake
-        </p>
-        <div style="color: var(--light-color); margin-top: 15px">
-          <label for="gameSpeed">Game Speed: </label>
-          <input
-            type="range"
-            id="gameSpeed"
-            min="1"
-            max="10"
-            value="5"
-            step="1"
-            style="width: 200px; margin: 0 10px"
-          />
-          <span id="speedValue">5x</span>
-        </div>
-        <div
-          style="color: var(--light-color); font-size: 24px; margin-top: 15px"
-        >
-          <span>Score: <span id="currentScore">0</span></span>
-          <span style="margin-left: 20px"
-            >High Score: <span id="highScoreDisplay">0</span></span
-          >
         </div>
       </div>
     </div>
@@ -146,5 +315,43 @@
       src="./Assets/Sounds/Snake/gamebeat.mp3"
       preload="auto"
     ></audio>
+    <div class="score-display">
+      <div>Score: <span id="currentScore">0</span></div>
+      <div>High Score: <span id="highScoreDisplay">0</span></div>
+    </div>
+    <script>
+      function toggleSettings() {
+        const menu = document.getElementById("settingsMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+
+      // Close settings menu when clicking outside
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("settingsMenu");
+        const settingsButton = document.getElementById("settingsButton");
+        if (!menu.contains(event.target) && event.target !== settingsButton) {
+          menu.style.display = "none";
+        }
+      });
+    </script>
+    <!-- Mobile controls -->
+    <div class="mobile-controls">
+      <div class="left-controls">
+        <button id="upButton" class="control-btn">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+        <button id="downButton" class="control-btn">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+      <div class="right-controls">
+        <button id="leftButton" class="control-btn">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <button id="rightButton" class="control-btn">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
   </body>
 </html>

@@ -39,6 +39,58 @@ document.addEventListener("DOMContentLoaded", function () {
   const bgMuteButton = document.getElementById("bgMuteButton");
   const volumeControl = document.getElementById("volumeControl");
   const volumeValue = document.getElementById("volumeValue");
+  const upButton = document.getElementById("upButton");
+  const downButton = document.getElementById("downButton");
+  const leftButton = document.getElementById("leftButton");
+  const rightButton = document.getElementById("rightButton");
+
+  function handleMobileControl(direction) {
+    if (!gameRunning || gamePaused) return;
+
+    const currentTime = performance.now();
+    if (currentTime - lastKeyPressTime < keyPressBuffer) return;
+
+    let newDirection = null;
+
+    switch (direction) {
+      case "up":
+        if (lastDirection.dy !== 1 && directionQueue.length === 0) {
+          newDirection = { dx: 0, dy: -1 };
+        }
+        break;
+      case "down":
+        if (lastDirection.dy !== -1 && directionQueue.length === 0) {
+          newDirection = { dx: 0, dy: 1 };
+        }
+        break;
+      case "left":
+        if (lastDirection.dx !== 1 && directionQueue.length === 0) {
+          newDirection = { dx: -1, dy: 0 };
+        }
+        break;
+      case "right":
+        if (lastDirection.dx !== -1 && directionQueue.length === 0) {
+          newDirection = { dx: 1, dy: 0 };
+        }
+        break;
+    }
+
+    if (newDirection) {
+      directionQueue = [newDirection];
+      lastKeyPressTime = currentTime;
+    }
+  }
+
+  upButton.addEventListener("touchstart", () => handleMobileControl("up"));
+  upButton.addEventListener("click", () => handleMobileControl("up"));
+  downButton.addEventListener("touchstart", () => handleMobileControl("down"));
+  downButton.addEventListener("click", () => handleMobileControl("down"));
+  leftButton.addEventListener("touchstart", () => handleMobileControl("left"));
+  leftButton.addEventListener("click", () => handleMobileControl("left"));
+  rightButton.addEventListener("touchstart", () =>
+    handleMobileControl("right")
+  );
+  rightButton.addEventListener("click", () => handleMobileControl("right"));
 
   function updateButtonStates() {
     startButton.style.opacity = gameRunning ? "0.5" : "1";
@@ -136,21 +188,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const glowIntensity = Math.max(0, 1 - distanceToFood / 10);
 
     // Draw snake with size gradient
+    // Drawing snake body
     snake.forEach((segment, index) => {
-      const sizeReduction = (index / snake.length) * 4;
-      const segmentSize = gridSize - 2 - sizeReduction;
-
-      ctx.fillStyle = "#80FF00"; // Darker, more saturated green
+      ctx.fillStyle = "#80FF00"; // Snake color
 
       if (index === 0) {
-        // Draw head with direction and glow effect
+        // Draw the snake's head
         ctx.save();
         ctx.translate(
           segment.x * gridSize + gridSize / 2,
           segment.y * gridSize + gridSize / 2
         );
 
-        // Determine rotation based on direction
+        // Determine head rotation
         let rotation = 0;
         if (dx === 1) rotation = 0;
         else if (dx === -1) rotation = Math.PI;
@@ -159,47 +209,179 @@ document.addEventListener("DOMContentLoaded", function () {
 
         ctx.rotate(rotation);
 
-        // Draw snake head
-        ctx.fillStyle = "#80FF00"; // Slightly darker for head
+        // Draw the head (oval with eyes)
+        ctx.fillStyle = "#80FF00";
         ctx.beginPath();
-        ctx.ellipse(0, 0, gridSize / 2, gridSize / 3, 0, 0, Math.PI * 2); // Base head shape
+        ctx.ellipse(0, 0, gridSize / 2, gridSize / 3, 0, 0, Math.PI * 2);
         ctx.fill();
 
         // Eyes
         ctx.fillStyle = "white";
         ctx.beginPath();
-        ctx.arc(-gridSize / 4, -gridSize / 6, 3, 0, Math.PI * 2);
-        ctx.arc(-gridSize / 4, gridSize / 6, 3, 0, Math.PI * 2);
+        ctx.arc(-gridSize / 4, -gridSize / 6, 3, 0, Math.PI * 2); // Left eye
+        ctx.arc(-gridSize / 4, gridSize / 6, 3, 0, Math.PI * 2); // Right eye
         ctx.fill();
 
-        // Pupils
         ctx.fillStyle = "black";
         ctx.beginPath();
-        ctx.arc(-gridSize / 4, -gridSize / 6, 1.5, 0, Math.PI * 2);
-        ctx.arc(-gridSize / 4, gridSize / 6, 1.5, 0, Math.PI * 2);
+        ctx.arc(-gridSize / 4, -gridSize / 6, 1.5, 0, Math.PI * 2); // Left pupil
+        ctx.arc(-gridSize / 4, gridSize / 6, 1.5, 0, Math.PI * 2); // Right pupil
         ctx.fill();
 
-        ctx.shadowColor = "yellow";
-        ctx.shadowBlur = glowIntensity * 15;
         ctx.restore();
       } else {
-        // Draw body segments with corner smoothing
+        ctx.save();
+        ctx.translate(
+          segment.x * gridSize + gridSize / 2,
+          segment.y * gridSize + gridSize / 2
+        );
+
         const prev = snake[index - 1];
         const next = snake[index + 1];
 
-        // Draw all body segments, not just ones with prev and next
-        ctx.beginPath();
-        ctx.arc(
-          segment.x * gridSize + gridSize / 2,
-          segment.y * gridSize + gridSize / 2,
-          segmentSize / 2,
-          0,
-          Math.PI * 2
-        );
-        ctx.fill();
-      }
+        if (next) {
+          // Calculate differences considering wrap-around
+          const dx1 =
+            (((prev.x - segment.x + tileCount) % tileCount) + tileCount) %
+            tileCount;
+          const dy1 =
+            (((prev.y - segment.y + tileCount) % tileCount) + tileCount) %
+            tileCount;
+          const dx2 =
+            (((next.x - segment.x + tileCount) % tileCount) + tileCount) %
+            tileCount;
+          const dy2 =
+            (((next.y - segment.y + tileCount) % tileCount) + tileCount) %
+            tileCount;
 
-      ctx.shadowBlur = 0;
+          // Convert wrap-around differences to -1, 0, or 1
+          const normalizedDx1 = dx1 > tileCount / 2 ? dx1 - tileCount : dx1;
+          const normalizedDy1 = dy1 > tileCount / 2 ? dy1 - tileCount : dy1;
+          const normalizedDx2 = dx2 > tileCount / 2 ? dx2 - tileCount : dx2;
+          const normalizedDy2 = dy2 > tileCount / 2 ? dy2 - tileCount : dy2;
+
+          if (
+            normalizedDx1 === -normalizedDx2 &&
+            normalizedDy1 === -normalizedDy2
+          ) {
+            // Straight segment
+            if (normalizedDx1 !== 0) {
+              // Horizontal
+              ctx.fillRect(
+                -gridSize / 2,
+                -gridSize / 4,
+                gridSize,
+                gridSize / 2
+              );
+            } else {
+              // Vertical
+              ctx.fillRect(
+                -gridSize / 4,
+                -gridSize / 2,
+                gridSize / 2,
+                gridSize
+              );
+            }
+          } else {
+            // Corner segment
+            let rotation = 0;
+
+            // Determine rotation based on normalized differences
+            if (
+              (normalizedDx1 === 0 &&
+                normalizedDx2 === 1 &&
+                normalizedDy1 === -1 &&
+                normalizedDy2 === 0) ||
+              (normalizedDx1 === 1 &&
+                normalizedDx2 === 0 &&
+                normalizedDy1 === 0 &&
+                normalizedDy2 === -1)
+            ) {
+              rotation = 0;
+            } else if (
+              (normalizedDx1 === -1 &&
+                normalizedDx2 === 0 &&
+                normalizedDy1 === 0 &&
+                normalizedDy2 === -1) ||
+              (normalizedDx1 === 0 &&
+                normalizedDx2 === -1 &&
+                normalizedDy1 === -1 &&
+                normalizedDy2 === 0)
+            ) {
+              rotation = -Math.PI / 2;
+            } else if (
+              (normalizedDx1 === 1 &&
+                normalizedDx2 === 0 &&
+                normalizedDy1 === 0 &&
+                normalizedDy2 === 1) ||
+              (normalizedDx1 === 0 &&
+                normalizedDx2 === 1 &&
+                normalizedDy1 === 1 &&
+                normalizedDy2 === 0)
+            ) {
+              rotation = Math.PI / 2;
+            } else if (
+              (normalizedDx1 === 0 &&
+                normalizedDx2 === -1 &&
+                normalizedDy1 === 1 &&
+                normalizedDy2 === 0) ||
+              (normalizedDx1 === -1 &&
+                normalizedDx2 === 0 &&
+                normalizedDy1 === 0 &&
+                normalizedDy2 === 1)
+            ) {
+              rotation = Math.PI;
+            }
+
+            ctx.rotate(rotation);
+            // Draw a rounded corner
+            ctx.beginPath();
+            ctx.moveTo(-gridSize / 4, -gridSize / 2);
+            ctx.quadraticCurveTo(
+              -gridSize / 4,
+              gridSize / 4,
+              gridSize / 2,
+              gridSize / 4
+            );
+            ctx.lineTo(gridSize / 2, -gridSize / 4);
+            ctx.quadraticCurveTo(
+              gridSize / 4,
+              -gridSize / 4,
+              gridSize / 4,
+              -gridSize / 2
+            );
+            ctx.lineTo(-gridSize / 4, -gridSize / 2);
+
+            ctx.fill();
+          }
+        } else {
+          // Draw tail segment considering wrap-around
+          const dx =
+            (((segment.x - prev.x + tileCount) % tileCount) + tileCount) %
+            tileCount;
+          const dy =
+            (((segment.y - prev.y + tileCount) % tileCount) + tileCount) %
+            tileCount;
+
+          // Convert to normalized differences
+          const normalizedDx = dx > tileCount / 2 ? dx - tileCount : dx;
+          const normalizedDy = dy > tileCount / 2 ? dy - tileCount : dy;
+
+          const rotation = Math.atan2(normalizedDy, normalizedDx) + Math.PI;
+
+          ctx.rotate(rotation);
+
+          // Tail shape
+          ctx.beginPath();
+          ctx.moveTo(-gridSize / 3, 0);
+          ctx.lineTo(gridSize / 4, -gridSize / 4);
+          ctx.lineTo(gridSize / 4, gridSize / 4);
+          ctx.closePath();
+          ctx.fill();
+        }
+
+        ctx.restore();
+      }
     });
 
     // Draw animated apple with higher contrast

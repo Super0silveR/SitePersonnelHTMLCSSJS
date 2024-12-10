@@ -1517,3 +1517,35 @@ footer img {
   border-radius: 50%;
   cursor: pointer;
 }
+
+/* Add these styles for the game container and canvas */
+.game-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 100px auto 0;
+  padding: 0 15px;
+}
+
+#canvas {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  border: 1px solid white;
+}
+
+/* Adjust the settings menu for mobile */
+@media (max-width: 600px) {
+  .settings-menu {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .controls-row {
+    flex-wrap: wrap;
+  }
+
+  .score-display {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

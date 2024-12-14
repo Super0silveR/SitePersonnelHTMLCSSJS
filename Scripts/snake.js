@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Add test flag and counter
+  let isTestMode = false; // Set to true to enable test mode
+  let testReactionTime = 0;
+
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   const startButton = document.getElementById("startButton");
@@ -49,6 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const currentTime = performance.now();
     if (currentTime - lastKeyPressTime < keyPressBuffer) return;
+
+    // Test mode: Track reaction time
+    if (isTestMode) {
+      testReactionTime = currentTime - lastKeyPressTime;
+      if (testReactionTime === 420) {
+        console.log("Test passed: Reaction time is exactly 420ms");
+        gameRunning = false;
+        return;
+      }
+      console.log("Current reaction time:", testReactionTime);
+    }
 
     let newDirection = null;
 
@@ -421,6 +436,15 @@ document.addEventListener("DOMContentLoaded", function () {
         canvas.width / 2,
         canvas.height / 2 + 40
       );
+
+      // Display test results if in test mode
+      if (isTestMode) {
+        ctx.fillText(
+          "Test Reaction Time: " + testReactionTime + "ms",
+          canvas.width / 2,
+          canvas.height / 2 + 70
+        );
+      }
     }
   }
 
@@ -507,6 +531,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const currentTime = performance.now();
     if (currentTime - lastKeyPressTime < keyPressBuffer) return;
+
+    // Test mode: Track reaction time
+    if (isTestMode) {
+      testReactionTime = currentTime - lastKeyPressTime;
+      if (testReactionTime === 420) {
+        console.log("Test passed: Reaction time is exactly 420ms");
+        gameRunning = false;
+        return;
+      }
+      console.log("Current reaction time:", testReactionTime);
+    }
 
     let newDirection = null;
 

@@ -24,6 +24,7 @@ function initializeReactionTest() {
 }
 
 function startReactionTest() {
+  console.log;
   countdownDisplay.textContent = "Wait for green...";
   resultDisplay.textContent = "";
 
@@ -41,7 +42,9 @@ function startReactionTest() {
       container.classList.remove("waiting-bg");
       container.classList.add("success-bg");
       countdownDisplay.textContent = "Click!";
+      console.log("Reaction time active");
       startTime = performance.now();
+      console.log("Reaction time active");
     } else {
       requestAnimationFrame(checkTime);
     }
@@ -54,6 +57,7 @@ function endTest() {
   if (!isTestActive) return;
 
   endTime = performance.now();
+
   const rawReactionTime = endTime - startTime;
 
   // Reduced system latency compensation - modern browsers have better input handling

@@ -168,7 +168,8 @@ class SavePlan {
   }
 
   initializeUI() {
-    document.body.innerHTML = `
+    const contentHolder = document.querySelector(".ContentHolder");
+    contentHolder.innerHTML = `
             <div class="save-plan-container">
                 <div class="form-section">
                     <h2>Add Transaction</h2>

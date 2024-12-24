@@ -1,0 +1,44 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <a href="index.html">
+        <img src="../assets/images/website-logo.png" alt="logo" id="mainlogo" />
+      </a>
+    </div>
+    <div class="main-menu">
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li class="home-only">
+          <a href="#work">Work Experience</a>
+        </li>
+        <li class="home-only">
+          <a href="#projects">Projects</a>
+        </li>
+        <li>
+          <a class="btn" href="fun.html">Fun</a>
+        </li>
+        <li>
+          <a class="btn" href="/pages/index.html#c">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <div class="dropmenu">
+      <a href="javascript:void(0)" onclick="burgerMenu()">
+        <img src="../assets/images/hamburger-icon.png" alt="" id="burgericon" />
+      </a>
+    </div>
+  </div>
+  <div class="optionmenu" id="optionmenu">
+    <a href="index.html" onclick="closeOptionMenu()">Home</a>
+    <a href="#work" onclick="closeOptionMenu()" class="home-only"
+      >Work Experience</a
+    >
+    <a href="#projects" onclick="closeOptionMenu()" class="home-only"
+      >Projects</a
+    >
+    <a href="fun.html" onclick="closeOptionMenu()">Fun</a>
+    <a href="#contact" onclick="closeOptionMenu()" class="home-only">Contact</a>
+  </div>
+</nav>

@@ -10,7 +10,9 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Styles/style.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/components/navbar/navbar.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -21,50 +23,18 @@
     <link rel="shortcut icon" href="Design/Logo.png" type="image/x-icon" />
   </head>
   <body>
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="Design/Logo.png" alt="logo" id="mainlogo" />
-          </a>
-        </div>
-        <div class="main-menu">
-          <ul>
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a class="btn" href="#">Fun</a>
-            </li>
-            <li>
-              <a class="btn" href="#c">Contact</a>
-            </li>
-          </ul>
-        </div>
-        <div class="dropmenu">
-          <a href="javascript:void(0)" onclick="burgerMenu()"
-            ><img src="Assets/Hamburger_icon.svg.png" alt="" id="burgericon"
-          /></a>
-        </div>
-      </div>
-      <div class="optionmenu" id="optionmenu">
-        <a href="#about" onclick="closeOptionMenu()">Home</a>
-        <a href="#workCards" onclick="closeOptionMenu()">Work Experience</a>
-        <a href="#projects" onclick="closeOptionMenu()">Projects</a>
-        <a href="#contactsection" onclick="closeOptionMenu()">Contact</a>
-      </div>
-    </nav>
+    <nav-bar></nav-bar>
     <div class="fun-grid-container">
       <div class="fun-grid-item">
         <a href="Snake.html">
-          <img src="Assets/snake_thumbnail.png" alt="Snake Game" />
+          <img src="/assets/images/snake-thumbnail.png" alt="Snake Game" />
           <div class="fun-title">Snake</div>
         </a>
       </div>
       <div class="fun-grid-item">
         <a href="MyReactionTime.html">
           <img
-            src="Assets/reactiontime_thumbnail.png"
+            src="/assets/images/reactiontime-thumbnail.png"
             alt="Reaction Time Game"
           />
           <div class="fun-title">Reaction Time</div>
@@ -72,16 +42,23 @@
       </div>
       <div class="fun-grid-item">
         <a href="EncoderDecoder.html">
-          <img src="Assets/encryption_thumbnail.png" alt="Encryption Tool" />
+          <img
+            src="/assets/images/encryption-thumbnail.png"
+            alt="Encryption Tool"
+          />
           <div class="fun-title">Encryption Tool</div>
         </a>
       </div>
       <div class="fun-grid-item">
         <a href="MySavePlan.html">
-          <img src="Assets/saveplan_thumbnail.png" alt="Save Plan Tool" />
+          <img
+            src="/assets/images/saveplan-thumbnail.png"
+            alt="Save Plan Tool"
+          />
           <div class="fun-title">Save Plan</div>
         </a>
       </div>
     </div>
   </body>
+  <script src="/components/navbar/navbar.js"></script>
 </html>

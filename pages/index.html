@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elias</title>
+    <title>Elias' Website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Styles/style.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../components/navbar/navbar.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -18,53 +20,19 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="shortcut icon" href="Design/Logo.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="/assets/images/website-logo.png"
+      type="image/x-icon"
+    />
+    <script src="../components/navbar/navbar.js"></script>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="Design/Logo.png" alt="logo" id="mainlogo" />
-          </a>
-        </div>
-        <div class="main-menu">
-          <ul>
-            <li>
-              <a href="#about">Home</a>
-            </li>
-            <li>
-              <a href="#we">Work Experience</a>
-            </li>
-            <li>
-              <a href="#p">Projects</a>
-            </li>
-            <li>
-              <a class="btn-fun" href="fun.html">Fun</a>
-            </li>
-            <li>
-              <a class="btn" href="#c">Contact</a>
-            </li>
-          </ul>
-        </div>
-        <div class="dropmenu">
-          <a href="javascript:void(0)" onclick="burgerMenu()"
-            ><img src="Assets/Hamburger_icon.svg.png" alt="" id="burgericon"
-          /></a>
-        </div>
-      </div>
-      <div class="optionmenu" id="optionmenu">
-        <a href="#about" onclick="closeOptionMenu()">Home</a>
-        <a href="#workCards" onclick="closeOptionMenu()">Work Experience</a>
-        <a href="#projects" onclick="closeOptionMenu()">Projects</a>
-        <a href="fun.html" onclick="closeOptionMenu()">Fun</a>
-        <a href="#contactsection" onclick="closeOptionMenu()">Contact</a>
-      </div>
-    </nav>
+    <nav-bar></nav-bar>
     <div class="ContentHolder">
       <div class="about" id="about">
         <div class="img">
-          <img src="Assets/Elias cropped.PNG" alt="Mepic" />
+          <img src="/assets/images/elias-picture-home.PNG" alt="Mepic" />
         </div>
         <div class="introduction">
           <h1>Hi my name is Elias!</h1>
@@ -80,7 +48,7 @@
       </div>
       <div class="about-me">
         <div class="degree">
-          <img src="Assets/Uottawacoa.svg" alt="" />
+          <img src="/assets/images/uottawa-logo.svg" alt="" />
           <p>
             💻 Engineer at Heart | Integrity-Driven Developer |
             Karate-Disciplined Thinker 🎓<br />
@@ -90,13 +58,13 @@
             integrity, and teamwork. On top of programming, I thrive in
             collaborative environments and excel at being a mediator who helps
             teams communicate and perform at their best. I firmly believe that
-            great teams build exceptional products, and I’m excited to be part
+            great teams build exceptional products, and I'm excited to be part
             of such success stories.<br /><br />
             🌟 Beyond code, I'm always in pursuit of excellence. As a
             competitive gamer, I thrive on strategy, adaptability, and quick
             thinking. 🎮 And as a Shotokan Karate Nidan, I find joy in
             continuous self-improvement and sharing knowledge to uplift others.
-            🥋 Let’s connect and build something extraordinary together! 🚀
+            🥋 Let's connect and build something extraordinary together! 🚀
           </p>
         </div>
         <div class="tech">
@@ -105,89 +73,223 @@
             <p>Programing Languages</p>
             <div class="pm">
               <ul>
-                <li><img src="Assets/techs/pl/c-sharp.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/c.webp" alt="" /></li>
-                <li><img src="Assets/techs/pl/C++.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/java.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/python.webp" alt="" /></li>
-                <li><img src="Assets/techs/pl/html.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/css.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/js.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/ts.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/sql.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/go.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/prolog.png" alt="" /></li>
-                <li><img src="Assets/techs/pl/scheme.png" alt="" /></li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/c-sharp.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/c.webp"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/C++.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/java.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/python.webp"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/html.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/css.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/js.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/ts.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/sql.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/go.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/prolog.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/programming_languages/scheme.png"
+                    alt=""
+                  />
+                </li>
               </ul>
             </div>
             <p>Frameworks</p>
             <div class="fm">
               <ul>
-                <li><img src="Assets/techs/fm/react.png" alt="" /></li>
-                <li><img src="Assets/techs/fm/dotnet.png" alt="" /></li>
-                <li><img src="Assets/techs/fm/nodejs.png" alt="" /></li>
-                <li><img src="Assets/techs/fm/angular.png" alt="" /></li>
-                <li><img src="Assets/techs/fm/docker.png" alt="" /></li>
-                <li><img src="Assets/techs/fm/pgadmin.png" alt="" /></li>
-                <li><img src="Assets/techs/fm/kubernetes.png" alt="" /></li>
-                <li><img src="Assets/techs/fm/Azure.png" alt="" /></li>
-                <li><img src="Assets/techs/fm/aws.webp" alt="" /></li>
-                <li><img src="Assets/techs/fm/bootstrap.png" alt="" /></li>
-                <li><img src="Assets/techs/fm/mui.png" alt="" /></li>
                 <li>
-                  <img src="Assets/techs/fm/semantics ui.png" alt="" />
+                  <img src="/assets/images/techs/frameworks/react.png" alt="" />
                 </li>
-                <li><img src="Assets/techs/fm/vite.svg" alt="" /></li>
-                <li><img src="Assets/techs/fm/spingboot.png" alt="" /></li>
+                <li>
+                  <img
+                    src="/assets/images/techs/frameworks/dotnet.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/frameworks/nodejs.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/frameworks/angular.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/frameworks/docker.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/frameworks/pgadmin.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/frameworks/kubernetes.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/frameworks/azure.png" alt="" />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/frameworks/aws.webp" alt="" />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/frameworks/bootstrap.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/frameworks/mui.png" alt="" />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/frameworks/semantics_ui.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/frameworks/vite.svg" alt="" />
+                </li>
+                <li>
+                  <img
+                    src="/assets/images/techs/frameworks/spingboot.png"
+                    alt=""
+                  />
+                </li>
               </ul>
             </div>
             <p>Tools and Software</p>
             <div class="tools">
               <ul>
-                <li><img src="Assets/techs/tools/windows.png" alt="" /></li>
-                <li><img src="Assets/techs/tools/linux.png" alt="" /></li>
                 <li>
-                  <img src="Assets/techs/tools/vs community.png" alt="" />
+                  <img src="/assets/images/techs/tools/windows.png" alt="" />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/tools/linux.png" alt="" />
                 </li>
                 <li>
                   <img
-                    class="toWhite"
-                    src="Assets/techs/tools/jetbrains.png"
-                    alt=""
-                  />
-                </li>
-                <li><img src="Assets/techs/tools/git.png" alt="" /></li>
-                <li>
-                  <img src="Assets/techs/tools/androidstudio.png" alt="" />
-                </li>
-                <li>
-                  <img
-                    class="toWhite"
-                    src="Assets/techs/tools/unity.png"
+                    src="/assets/images/techs/tools/vs_community.png"
                     alt=""
                   />
                 </li>
                 <li>
-                  <img src="Assets/techs/tools/cofluence.png" alt="" />
+                  <img
+                    class="toWhite"
+                    src="/assets/images/techs/tools/jetbrains.png"
+                    alt=""
+                  />
                 </li>
-                <li><img src="Assets/techs/tools/jira.png" alt="" /></li>
+                <li><img src="/assets/images/techs/tools/git.png" alt="" /></li>
                 <li>
-                  <img src="Assets/techs/tools/bitbucket.webp" alt="" />
+                  <img
+                    src="/assets/images/techs/tools/androidstudio.png"
+                    alt=""
+                  />
                 </li>
-                <li><img src="Assets/techs/tools/arduino.png" alt="" /></li>
                 <li>
-                  <img src="Assets/techs/tools/wireshark.png" alt="" />
+                  <img
+                    class="toWhite"
+                    src="/assets/images/techs/tools/unity.png"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/tools/confluence.png" alt="" />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/tools/jira.png" alt="" />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/tools/bitbucket.webp" alt="" />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/tools/arduino.png" alt="" />
+                </li>
+                <li>
+                  <img src="/assets/images/techs/tools/wireshark.png" alt="" />
                 </li>
               </ul>
             </div>
             <p>My other activities</p>
             <ul>
-              <li><img src="Assets/techs/other/deen.png" alt="" /></li>
-              <li><img src="Assets/techs/other/karate.png" alt="" /></li>
-              <li><img src="Assets/techs/other/cook.png" alt="" /></li>
-              <li><img src="Assets/techs/other/dnd.png" alt="" /></li>
-              <li><img src="Assets/techs/other/leeg.webp" alt="" /></li>
-              <li><img src="Assets/techs/other/steam.png" alt="" /></li>
+              <li><img src="/assets/images/techs/other/deen.png" alt="" /></li>
+              <li>
+                <img src="/assets/images/techs/other/karate.png" alt="" />
+              </li>
+              <li><img src="/assets/images/techs/other/cook.png" alt="" /></li>
+              <li><img src="/assets/images/techs/other/dnd.png" alt="" /></li>
+              <li><img src="/assets/images/techs/other/leeg.webp" alt="" /></li>
+              <li><img src="/assets/images/techs/other/steam.png" alt="" /></li>
             </ul>
           </div>
         </div>
@@ -497,18 +599,16 @@
             href="https://www.linkedin.com/in/elias-mahamane-sidi/"
             id="LinkedIn"
           >
-            <img src="Assets/linkedin.webp" alt="" />
+            <img src="/assets/images/linkedin.webp" alt="" />
           </a>
           <a href="mailto:elias.sidi@gmail.com" id="Gmail"
-            ><img src="Assets/gmail.webp" alt=""
+            ><img src="/assets/images/gmail.webp" alt=""
           /></a>
           <a href="https://github.com/Super0silveR" id="Github"
-            ><img src="Assets/github.png" alt=""
+            ><img src="/assets/images/github.png" alt=""
           /></a>
         </div>
       </div>
     </footer>
-
-    <script src="Scripts/main.js"></script>
   </body>
 </html>

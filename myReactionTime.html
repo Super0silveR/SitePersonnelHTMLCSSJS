@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Styles/style.css" />
+    <script src="Scripts/reactiontime.js"></script>
+    <script src="Scripts/main.js"></script>
+    <link rel="shortcut icon" href="Design/Logo.png" type="image/x-icon" />
+    <title>My Reaction Time</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="Design/Logo.png" alt="logo" id="mainlogo" />
+          </a>
+        </div>
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="btn" href="fun.html">Fun</a>
+            </li>
+            <li>
+              <a class="btn" href="#c">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="dropmenu">
+          <a href="javascript:void(0)" onclick="burgerMenu()">
+            <img src="Assets/Hamburger_icon.svg.png" alt="" id="burgericon" />
+          </a>
+        </div>
+      </div>
+      <div class="optionmenu" id="optionmenu">
+        <a href="index.html" onclick="closeOptionMenu()">Home</a>
+        <a href="fun.html" onclick="closeOptionMenu()">Fun</a>
+        <a href="#c" onclick="closeOptionMenu()">Contact</a>
+      </div>
+    </nav>
+    <div id="reaction-container">
+      <h2 id="countdown-display">Click to start</h2>
+      <p id="result-display">Test your reaction time!</p>
+    </div>
+  </body>
+</html>

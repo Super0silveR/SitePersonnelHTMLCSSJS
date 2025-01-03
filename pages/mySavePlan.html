@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/components/navbar/navbar.css" />
     <link rel="stylesheet" href="/styles/base.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/scripts/saveplan.js" defer></script>
-    <script src="/scripts/main.js"></script>
-    <script src="/components/navbar/navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <script type="module" src="/components/save-plan/save_plan.js"></script>
+    <script type="module" src="/scripts/main.js"></script>
+    <script type="module" src="/components/navbar/navbar.js"></script>
     <link
       rel="shortcut icon"
       href="/assets/images/website-logo.png"
@@ -25,6 +25,8 @@
   </head>
   <body>
     <nav-bar></nav-bar>
-    <div class="ContentHolder"></div>
+    <div class="ContentHolder">
+      <save-plan></save-plan>
+    </div>
   </body>
 </html>

@@ -1,3 +1,7 @@
+:root {
+  --navbar-height: 100px;
+}
+
 .navbar {
   background: var(--light-color);
   padding: 20px;
@@ -40,7 +44,7 @@
 
 .navbar #mainlogo:hover {
   rotate: -0.25turn;
-  color: #de1717;
+  color: var(--secondary-color);
 }
 
 #burgericon {
@@ -53,7 +57,7 @@
 }
 
 .navbar #burgericon:hover {
-  background-color: #ffffff;
+  background-color: var(--light-color);
   filter: invert(1);
 }
 
@@ -66,18 +70,22 @@
 }
 
 .optionmenu a {
-  color: #000000;
+  color: var(--dark-color);
   transition: all 1s ease;
 }
 
 .optionmenu a:hover {
-  background-color: #000000;
+  background-color: var(--dark-color);
   color: var(--primary-color);
   text-align: center;
 }
 
 .home-only {
   display: none;
+}
+
+.navbar-spacer {
+  height: var(--navbar-height);
 }
 
 @media (max-width: 1100px) {

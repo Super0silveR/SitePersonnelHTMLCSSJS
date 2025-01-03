@@ -1,0 +1,246 @@
+.save-plan-container {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Raleway", sans-serif;
+}
+
+.tabs-section {
+  margin-bottom: 20px;
+}
+
+.tabs-header {
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.plan-tabs {
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.tab {
+  position: relative;
+  padding: 8px 16px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+  margin-bottom: 8px;
+}
+
+.tab.active {
+  background-color: #2196f3;
+  color: white;
+}
+
+.tab:hover {
+  background-color: #e0e0e0;
+}
+
+.tab.active:hover {
+  background-color: #1976d2;
+}
+
+.delete-tab {
+  color: #666;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.tab.active .delete-tab {
+  color: #fff;
+}
+
+.delete-tab:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.new-plan-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#planNameInput {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.chart-container {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.results {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+  .save-plan-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+  }
+}
+
+.dialog-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.tab-tooltip {
+  position: fixed;
+  z-index: 9999;
+  background-color: rgba(51, 51, 51, 0.95);
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  width: max-content;
+  max-width: 250px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  margin-top: -10px;
+  opacity: 0;
+  visibility: hidden;
+  animation: tooltipDelay 2s forwards;
+}
+
+@keyframes tooltipDelay {
+  0%,
+  50% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  60% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.tab:hover .tab-tooltip {
+  display: block;
+}
+
+.tooltip-content {
+  text-align: left;
+}
+
+.tooltip-content strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.tooltip-content p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #eee;
+}
+
+.tooltip-content small {
+  display: block;
+  margin-top: 6px;
+  color: #ccc;
+  font-size: 11px;
+}
+
+.tab-name {
+  flex-grow: 1;
+  text-align: left;
+}

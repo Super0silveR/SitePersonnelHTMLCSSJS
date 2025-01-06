@@ -12,10 +12,10 @@ class SnakeScreen extends HTMLElement {
 
   connectedCallback() {
     Promise.all([
-      fetch("/components/snake/snake-screen/snake_screen.html").then(
+      fetch("/Components/Snake/snake-screen/snake_screen.html").then(
         (response) => response.text()
       ),
-      fetch("/components/snake/snake-screen/snake_screen.css").then(
+      fetch("/Components/Snake/snake-screen/snake_screen.css").then(
         (response) => response.text()
       ),
     ])
@@ -44,7 +44,7 @@ class SnakeScreen extends HTMLElement {
     };
 
     for (const [key, file] of Object.entries(soundFiles)) {
-      const audio = new Audio(`../../assets/sounds/snake/${file}`);
+      const audio = new Audio(`../../Assets/Sounds/snake/${file}`);
       audio.preload = "auto";
       this.sounds[key] = audio;
     }

@@ -6,10 +6,10 @@ class SnakeGame extends HTMLElement {
 
   connectedCallback() {
     Promise.all([
-      fetch("/components/snake/snake_game.html").then((response) =>
+      fetch("/Components/Snake/snake_game.html").then((response) =>
         response.text()
       ),
-      fetch("/components/snake/snake_game.css").then((response) =>
+      fetch("/Components/Snake/snake_game.css").then((response) =>
         response.text()
       ),
     ])

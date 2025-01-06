@@ -4,7 +4,7 @@ class Navbar extends HTMLElement {
   }
 
   connectedCallback() {
-    fetch("/components/navbar/navbar.html")
+    fetch("./Components/Navbar/navbar.html")
       .then((response) => response.text())
       .then((html) => {
         this.innerHTML = html;

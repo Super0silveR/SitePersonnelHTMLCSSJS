@@ -23,12 +23,14 @@ let removeActiveWorkCard = () => {
 };
 
 workCardElement.forEach((workCard) => {
-  if (screen.width > 1100) {
-    workCard.addEventListener("mouseover", () => {
-      removeActiveWorkCard();
-      workCard.classList.add("active");
-    });
-  }
+  workCard.addEventListener("mouseover", () => {
+    removeActiveWorkCard();
+    workCard.classList.add("active");
+  });
+
+  workCard.addEventListener("mouseout", () => {
+    workCard.classList.remove("active");
+  });
 });
 
 let removeActiveProjectTag = () => {

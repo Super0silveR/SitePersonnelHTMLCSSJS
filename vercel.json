@@ -1,0 +1,10 @@
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/styles/(.*)", "dest": "/styles/$1" },
+    { "src": "/components/(.*)", "dest": "/components/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}

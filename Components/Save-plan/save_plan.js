@@ -9,10 +9,10 @@ class SavePlan extends HTMLElement {
 
   connectedCallback() {
     Promise.all([
-      fetch("/components/save-plan/save_plan.html").then((response) =>
+      fetch("./Components/Save-plan/save_plan.html").then((response) =>
         response.text()
       ),
-      fetch("/components/save-plan/save_plan.css").then((response) =>
+      fetch("./Components/Save-plan/save_plan.css").then((response) =>
         response.text()
       ),
     ]).then(([html, css]) => {

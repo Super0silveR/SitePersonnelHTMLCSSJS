@@ -10,7 +10,7 @@ class ReactionTime extends HTMLElement {
   }
 
   connectedCallback() {
-    fetch("/components/reaction-time/reaction_time.html")
+    fetch("./Components/Reaction-time/reaction_time.html")
       .then((response) => response.text())
       .then((html) => {
         this.innerHTML = html;

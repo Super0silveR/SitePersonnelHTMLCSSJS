@@ -492,7 +492,7 @@ h2 {
 
   .imagehold {
     transition: 1s linear;
-    background-image: url("./Assets/Images/code.jpeg");
+    background-image: url("../Assets/Images/code.jpeg");
     background-size: cover;
     filter: brightness(50%) blur(1px);
     transition: 0.25s ease-in;
@@ -648,7 +648,7 @@ h2 {
   .imagehold {
     width: 50%;
     transition: 1s linear;
-    background-image: url("./Assets/Images/code.jpeg");
+    background-image: url("../Assets/Images/code.jpeg");
     background-size: cover;
     filter: brightness(50%) blur(1px);
     transition: 0.25s ease-in;
@@ -714,15 +714,15 @@ h2 {
 }
 
 #DowntownApp {
-  background-image: url("./Assets/Images/downtown.jpg");
+  background-image: url("../Assets/Images/downtown.jpg");
 }
 
 #myWebsite {
-  background-image: url("./Assets/Images/elias-website.jpg");
+  background-image: url("../Assets/Images/elias-website.jpg");
 }
 
 #comingsoon {
-  background-image: url("./Assets/Images/comming-soon.jpg");
+  background-image: url("../Assets/Images/comming-soon.jpg");
 }
 
 /* Work Cards */
@@ -931,16 +931,16 @@ h2 {
 }
 
 #workCard-1 {
-  background-image: url("./Assets/Images/downtown.jpg");
+  background-image: url("../Assets/Images/downtown.jpg");
 }
 #workCard-2 {
-  background-image: url("./Assets/Images/oxfam-quebec-facade.jpg");
+  background-image: url("../Assets/Images/oxfam-quebec-facade.jpg");
 }
 #workCard-3 {
-  background-image: url("./Assets/Images/innovapost-facade.jpg");
+  background-image: url("../Assets/Images/innovapost-facade.jpg");
 }
 #workCard-4 {
-  background-image: url("./Assets/Images/innovapost-365march.jpg");
+  background-image: url("../Assets/Images/innovapost-365march.jpg");
 }
 
 /* Work Experience */

@@ -7,6 +7,12 @@ class Navbar extends HTMLElement {
     const isRootPage =
       window.location.pathname.endsWith("index.html") ||
       window.location.pathname.endsWith("/");
+
+    // Add base path detection for GitHub Pages
+    const getBasePath = () => {
+      return isRootPage ? "." : "..";
+    };
+
     const navbarPath = isRootPage
       ? "./Components/Navbar/navbar.html"
       : "../Components/Navbar/navbar.html";
@@ -14,6 +20,8 @@ class Navbar extends HTMLElement {
     fetch(navbarPath)
       .then((response) => response.text())
       .then((html) => {
+        // Replace placeholders in the HTML with correct paths
+        html = html.replace(/\{\{BASE_PATH\}\}/g, getBasePath());
         this.innerHTML = html;
         this.initializeNavbar();
         this.handleHomePageItems();

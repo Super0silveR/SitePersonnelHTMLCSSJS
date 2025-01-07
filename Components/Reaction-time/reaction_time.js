@@ -10,11 +10,21 @@ class ReactionTime extends HTMLElement {
   }
 
   connectedCallback() {
-    fetch("./Components/Reaction-time/reaction_time.html")
+    const isRootPage =
+      window.location.pathname.endsWith("index.html") ||
+      window.location.pathname.endsWith("/");
+
+    const basePath = isRootPage ? "." : "..";
+    const componentPath = `${basePath}/Components/ReactionTime/reaction_time.html`;
+
+    fetch(componentPath)
       .then((response) => response.text())
       .then((html) => {
         this.innerHTML = html;
         this.initializeReactionTest();
+      })
+      .catch((error) => {
+        console.error("Error loading reaction time component:", error);
       });
   }
 

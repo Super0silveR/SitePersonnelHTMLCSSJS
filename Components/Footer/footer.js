@@ -7,6 +7,11 @@ class Footer extends HTMLElement {
     const isRootPage =
       window.location.pathname.endsWith("index.html") ||
       window.location.pathname.endsWith("/");
+
+    const getBasePath = () => {
+      return isRootPage ? "." : "..";
+    };
+
     const footerPath = isRootPage
       ? "./Components/Footer/footer.html"
       : "../Components/Footer/footer.html";
@@ -14,6 +19,7 @@ class Footer extends HTMLElement {
     fetch(footerPath)
       .then((response) => response.text())
       .then((html) => {
+        html = html.replace(/\{\{BASE_PATH\}\}/g, getBasePath());
         this.innerHTML = html;
       })
       .catch((error) => {

@@ -3,7 +3,7 @@
     <div class="logo">
       <a href="{{BASE_PATH}}/index.html">
         <img
-          src="{{BASE_PATH}}/assets/images/website-logo.png"
+          src="{{BASE_PATH}}/Assets/Images/website-logo.png"
           alt="logo"
           id="mainlogo"
         />
@@ -21,7 +21,7 @@
           <a href="{{BASE_PATH}}/index.html#projects">Projects</a>
         </li>
         <li>
-          <a class="btn" href="{{BASE_PATH}}/pages/fun.html">Fun</a>
+          <a class="btn" href="{{BASE_PATH}}/Pages/fun.html">Fun</a>
         </li>
         <li>
           <a class="btn" href="{{BASE_PATH}}/index.html#c">Contact</a>
@@ -31,7 +31,7 @@
     <div class="dropmenu">
       <a href="javascript:void(0)" onclick="burgerMenu()">
         <img
-          src="../Assets/Images/hamburger-menu-icon.png"
+          src="{{BASE_PATH}}/Assets/Images/hamburger-menu-icon.png"
           alt=""
           id="burgericon"
         />
@@ -39,18 +39,24 @@
     </div>
   </div>
   <div class="optionmenu" id="optionmenu">
-    <a href="./index.html" onclick="closeOptionMenu()">Home</a>
-    <a href="./index.html#work" onclick="closeOptionMenu()" class="home-only"
+    <a href="{{BASE_PATH}}/index.html" onclick="closeOptionMenu()">Home</a>
+    <a
+      href="{{BASE_PATH}}/index.html#we"
+      onclick="closeOptionMenu()"
+      class="home-only"
       >Work Experience</a
     >
     <a
-      href="./index.html#projects"
+      href="{{BASE_PATH}}/index.html#projects"
       onclick="closeOptionMenu()"
       class="home-only"
       >Projects</a
     >
-    <a href="./Pages/fun.html" onclick="closeOptionMenu()">Fun</a>
-    <a href="./index.html#contact" onclick="closeOptionMenu()" class="home-only"
+    <a href="{{BASE_PATH}}/Pages/fun.html" onclick="closeOptionMenu()">Fun</a>
+    <a
+      href="{{BASE_PATH}}/index.html#c"
+      onclick="closeOptionMenu()"
+      class="home-only"
       >Contact</a
     >
   </div>

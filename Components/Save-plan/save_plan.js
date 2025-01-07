@@ -8,11 +8,18 @@ class SavePlan extends HTMLElement {
   }
 
   connectedCallback() {
+    const isRootPage =
+      window.location.pathname.endsWith("index.html") ||
+      window.location.pathname.endsWith("/");
+
+    const basePath = isRootPage ? "." : "..";
+    const componentPath = `${basePath}/Components/Save-plan`;
+
     Promise.all([
-      fetch("./Components/Save-plan/save_plan.html").then((response) =>
+      fetch(`${componentPath}/save_plan.html`).then((response) =>
         response.text()
       ),
-      fetch("./Components/Save-plan/save_plan.css").then((response) =>
+      fetch(`${componentPath}/save_plan.css`).then((response) =>
         response.text()
       ),
     ]).then(([html, css]) => {

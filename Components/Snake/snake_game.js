@@ -5,11 +5,18 @@ class SnakeGame extends HTMLElement {
   }
 
   connectedCallback() {
+    const isRootPage =
+      window.location.pathname.endsWith("index.html") ||
+      window.location.pathname.endsWith("/");
+
+    const basePath = isRootPage ? "." : "..";
+    const componentPath = `${basePath}/Components/Snake`;
+
     Promise.all([
-      fetch("/Components/Snake/snake_game.html").then((response) =>
+      fetch(`${componentPath}/snake_game.html`).then((response) =>
         response.text()
       ),
-      fetch("/Components/Snake/snake_game.css").then((response) =>
+      fetch(`${componentPath}/snake_game.css`).then((response) =>
         response.text()
       ),
     ])

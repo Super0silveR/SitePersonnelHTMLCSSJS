@@ -15,7 +15,7 @@ class ReactionTime extends HTMLElement {
       window.location.pathname.endsWith("/");
 
     const basePath = isRootPage ? "." : "..";
-    const componentPath = `${basePath}/Components/ReactionTime/reaction_time.html`;
+    const componentPath = `${basePath}/Components/Reaction-time/reaction_time.html`;
 
     fetch(componentPath)
       .then((response) => response.text())

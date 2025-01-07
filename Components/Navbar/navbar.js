@@ -4,12 +4,22 @@ class Navbar extends HTMLElement {
   }
 
   connectedCallback() {
-    fetch("./Components/Navbar/navbar.html")
+    const isRootPage =
+      window.location.pathname.endsWith("index.html") ||
+      window.location.pathname.endsWith("/");
+    const navbarPath = isRootPage
+      ? "./Components/Navbar/navbar.html"
+      : "../Components/Navbar/navbar.html";
+
+    fetch(navbarPath)
       .then((response) => response.text())
       .then((html) => {
         this.innerHTML = html;
         this.initializeNavbar();
         this.handleHomePageItems();
+      })
+      .catch((error) => {
+        console.error("Error loading navbar:", error);
       });
   }
 

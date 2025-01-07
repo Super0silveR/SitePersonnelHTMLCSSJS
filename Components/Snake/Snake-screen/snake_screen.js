@@ -11,12 +11,19 @@ class SnakeScreen extends HTMLElement {
   }
 
   connectedCallback() {
+    const isRootPage =
+      window.location.pathname.endsWith("index.html") ||
+      window.location.pathname.endsWith("/");
+
+    const basePath = isRootPage ? "." : "..";
+    const componentPath = `${basePath}/Components/Snake/Snake-screen`;
+
     Promise.all([
-      fetch("/Components/Snake/Snake-screen/snake_screen.html").then(
-        (response) => response.text()
+      fetch(`${componentPath}/snake_screen.html`).then((response) =>
+        response.text()
       ),
-      fetch("/Components/Snake/Snake-screen/snake_screen.css").then(
-        (response) => response.text()
+      fetch(`${componentPath}/snake_screen.css`).then((response) =>
+        response.text()
       ),
     ])
       .then(([html, css]) => {
@@ -44,7 +51,11 @@ class SnakeScreen extends HTMLElement {
     };
 
     for (const [key, file] of Object.entries(soundFiles)) {
-      const audio = new Audio(`../../Assets/Sounds/snake/${file}`);
+      const isRootPage =
+        window.location.pathname.endsWith("index.html") ||
+        window.location.pathname.endsWith("/");
+      const basePath = isRootPage ? "." : "..";
+      const audio = new Audio(`${basePath}/Assets/Sounds/snake/${file}`);
       audio.preload = "auto";
       this.sounds[key] = audio;
     }

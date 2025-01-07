@@ -5,12 +5,18 @@ class SnakeMenu extends HTMLElement {
   }
 
   connectedCallback() {
-    // Load HTML and CSS
+    const isRootPage =
+      window.location.pathname.endsWith("index.html") ||
+      window.location.pathname.endsWith("/");
+
+    const basePath = isRootPage ? "." : "..";
+    const componentPath = `${basePath}/Components/Snake/Snake-menu`;
+
     Promise.all([
-      fetch("/Components/Snake/Snake-menu/snake_menu.html").then((response) =>
+      fetch(`${componentPath}/snake_menu.html`).then((response) =>
         response.text()
       ),
-      fetch("/Components/Snake/Snake-menu/snake_menu.css").then((response) =>
+      fetch(`${componentPath}/snake_menu.css`).then((response) =>
         response.text()
       ),
     ]).then(([html, css]) => {

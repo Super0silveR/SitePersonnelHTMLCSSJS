@@ -12,10 +12,10 @@ class SnakeScreen extends HTMLElement {
 
   connectedCallback() {
     Promise.all([
-      fetch("/Components/Snake/snake-screen/snake_screen.html").then(
+      fetch("/Components/Snake/Snake-screen/snake_screen.html").then(
         (response) => response.text()
       ),
-      fetch("/Components/Snake/snake-screen/snake_screen.css").then(
+      fetch("/Components/Snake/Snake-screen/snake_screen.css").then(
         (response) => response.text()
       ),
     ])

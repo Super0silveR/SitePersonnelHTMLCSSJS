@@ -7,10 +7,10 @@ class SnakeMenu extends HTMLElement {
   connectedCallback() {
     // Load HTML and CSS
     Promise.all([
-      fetch("/components/snake/snake-menu/snake_menu.html").then((response) =>
+      fetch("/Components/Snake/Snake-menu/snake_menu.html").then((response) =>
         response.text()
       ),
-      fetch("/components/snake/snake-menu/snake_menu.css").then((response) =>
+      fetch("/Components/Snake/Snake-menu/snake_menu.css").then((response) =>
         response.text()
       ),
     ]).then(([html, css]) => {

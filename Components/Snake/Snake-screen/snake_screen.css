@@ -1,15 +1,20 @@
 .game-container {
   width: 100%;
-  max-width: 500px;
+  max-width: min(500px, 90vw); /* Use viewport width if smaller than 500px */
   margin: 0 auto;
   padding: 0 15px;
 }
 
 #canvas {
   width: 100%;
-  height: auto;
-  max-width: 500px;
+  height: 100%;
+  max-width: min(500px, 90vw);
+  max-height: min(
+    500px,
+    90vw
+  ); /* Match width to maintain square aspect ratio */
   border: 1px solid white;
+  aspect-ratio: 1; /* Force square aspect ratio */
 }
 
 .score-display {

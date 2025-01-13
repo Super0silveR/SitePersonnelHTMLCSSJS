@@ -31,6 +31,30 @@ class SnakeScreen extends HTMLElement {
         // Load sounds after DOM is ready
         this.loadSounds();
         this.initializeGame();
+
+        // Draw initial message
+        this.canvas = this.shadowRoot.querySelector("#canvas");
+        this.ctx = this.canvas.getContext("2d");
+        this.ctx.fillStyle = "#141712";
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.fillStyle = "white";
+        this.ctx.font = "20px Arial";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText(
+          "Press start game to begin,",
+          this.canvas.width / 2,
+          this.canvas.height / 2 - 20
+        );
+        this.ctx.fillText(
+          "use arrow keys or buttons on screen to move.",
+          this.canvas.width / 2,
+          this.canvas.height / 2 + 10
+        );
+        this.ctx.fillText(
+          "Good luck!",
+          this.canvas.width / 2,
+          this.canvas.height / 2 + 40
+        );
       })
       .catch((error) => {
         console.error("Error loading HTML/CSS:", error);
@@ -192,7 +216,7 @@ class SnakeScreen extends HTMLElement {
     this.startButton.style.cursor = this.gameRunning
       ? "not-allowed"
       : "pointer";
-    this.pauseButton.innerHTML = this.gamePaused ? "Resume" : "Pause";
+    this.pauseButton.innerHTML = this.gamePaused ? "|>" : "||";
     this.pauseButton.style.display = this.gameRunning ? "inline-block" : "none";
   }
 
@@ -551,11 +575,6 @@ class SnakeScreen extends HTMLElement {
       this.canvas.width / 2,
       this.canvas.height / 2 + 10
     );
-    this.ctx.fillText(
-      "Press (P) to restart",
-      this.canvas.width / 2,
-      this.canvas.height / 2 + 40
-    );
   }
 
   moveSnake() {
@@ -689,12 +708,15 @@ class SnakeScreen extends HTMLElement {
     if (this.soundsLoaded) {
       Object.values(this.sounds).forEach((sound) => {
         if (sound !== this.sounds.background) {
-          sound.volume = this.isMuted ? 0 : this.volume;
+          sound.volume = Math.min(Math.max(parseFloat(this.volume) || 0, 0), 1);
         }
       });
 
       if (this.sounds.background) {
-        this.sounds.background.volume = this.isBgMuted ? 0 : this.volume;
+        this.sounds.background.volume = Math.min(
+          Math.max(parseFloat(this.volume) || 0, 0),
+          1
+        );
         if (!this.isBgMuted && this.gameRunning && !this.gamePaused) {
           this.sounds.background.play();
         } else {
